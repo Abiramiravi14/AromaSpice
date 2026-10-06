@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Your Shopping Cart - AromaSpice</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {"primary-fixed":"#b9f0be","primary-container":"#1b4d29","on-secondary-fixed":"#410006","on-surface-variant":"#414941","background":"#f6fbf5","tertiary-fixed-dim":"#ffb77d","outline-variant":"#c1c9be","tertiary":"#482400","tertiary-container":"#693600","on-tertiary-fixed-variant":"#6e3900","on-primary-fixed-variant":"#1e502c","surface-container-low":"#f0f5f0","on-tertiary":"#ffffff","secondary-container":"#fe807d","inverse-surface":"#2c322e","surface-dim":"#d7dbd6","surface":"#f6fbf5","on-primary":"#ffffff","on-error":"#ffffff","inverse-on-surface":"#edf2ed","primary-fixed-dim":"#9dd3a4","surface-variant":"#dfe4df","on-surface":"#181d1a","primary":"#003615","surface-tint":"#376942","error-container":"#ffdad6","on-secondary-container":"#74181d","surface-container-high":"#e5e9e4","on-background":"#181d1a","on-error-container":"#93000a","surface-bright":"#f6fbf5","secondary-fixed":"#ffdad8","on-secondary-fixed-variant":"#832327","surface-container-highest":"#dfe4df","surface-container":"#ebefea","tertiary-fixed":"#ffdcc3","secondary":"#a33b3c","on-primary-container":"#88bd8f","on-secondary":"#ffffff","error":"#ba1a1a","outline":"#717970","on-tertiary-fixed":"#2f1500","secondary-fixed-dim":"#ffb3b0","on-primary-fixed":"#00210a","surface-container-lowest":"#ffffff","on-tertiary-container":"#ff9733","inverse-primary":"#9dd3a4",
+            brand: {
+              cream: '#fcfaf6',
+              card: '#ffffff',
+              red: '#8b1d1d',
+              redDark: '#701313',
+              green: '#1b4d29',
+              greenDark: '#143c1f',
+              lightGreen: '#eaf4ee',
+              gold: '#c28e2b',
+              grayLight: '#f3f4f6',
+              textMain: '#241a1a',
+              textMuted: '#6b7280',
+              border: '#e5e0d8',
+            }
+          },
+          spacing: {"margin-desktop":"3rem",margin:"2rem","space-md":"1rem","space-xl":"2.5rem","margin-mobile":"1rem",gutter:"1.5rem","space-lg":"1.5rem","gutter-sm":"1rem","gutter-lg":"2rem","space-sm":"0.5rem","space-xs":"0.25rem"},
+          fontSize: {"title-md":["16px",{lineHeight:"22px",fontWeight:"600"}],"title-lg":["18px",{lineHeight:"24px",fontWeight:"700"}],"headline-lg-mobile":["26px",{lineHeight:"32px",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"26px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"22px",fontWeight:"400"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"700"}],"headline-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"headline-sm":["20px",{lineHeight:"28px",fontWeight:"600"}],"headline-xl-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.01em",fontWeight:"700"}],"headline-xl":["48px",{lineHeight:"56px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-md":["24px",{lineHeight:"32px",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}]},
+          fontFamily: {"title-md":["Plus Jakarta Sans"],"title-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Playfair Display"],"body-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg":["Playfair Display"],"label-md":["Plus Jakarta Sans"],"headline-sm":["Playfair Display"],"headline-xl-mobile":["Playfair Display"],"headline-xl":["Playfair Display"],"headline-md":["Playfair Display"],"label-lg":["Plus Jakarta Sans"],
+            serif: ['Georgia', 'Cambria', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    };</script>
+<!-- Custom Styling for Specific Elements -->
+<style data-purpose="custom-styling">
+    body {
+      background-color: #fcfaf6;
+      color: #241a1a;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    .brand-title {
+      font-family: 'Georgia', serif;
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+</head>
+<body class="min-h-screen flex flex-col justify-between pt-36">
+<!-- BEGIN: TopBar -->
+<!-- Top promotional announcement banner -->
+<div class="bg-[#781616] text-white text-xs py-1.5 px-4 text-center tracking-wide font-medium">
+    Pure Spices, Pure Love • Free Shipping across India on orders above ₹499!
+  </div>
+<!-- END: TopBar -->
+<!-- BEGIN: MainHeader -->
+<header class="fixed top-0 left-0 w-full z-50 shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface"><div class="bg-surface-container-lowest py-space-md"><div class="max-w-7xl mx-auto px-gutter flex flex-wrap items-center justify-between gap-x-gutter-lg"><a class="flex flex-col flex-shrink-0 group" data-path="home" href="#"><span class="font-headline-md text-headline-md text-primary tracking-tight group-hover:text-primary-container transition-colors">AromaSpice</span><span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase -mt- space-xs">-- by Narus Foods --</span></a><div class="flex items-center gap-gutter-sm flex-shrink-0 max-sm:basis-full max-sm:justify-end"><a class="flex items-center gap-space-xs text-on-surface-variant hover:text-on-surface transition-colors py-space-xs px-space-sm" data-path="profile" href="#"><span class="material-symbols-outlined text-[22px]">person</span><div class="hidden lg:flex flex-col text-left"><span class="font-label-sm text-label-sm leading-none">Account</span><span class="font-label-md text-label-md font-bold leading-none mt-space-xs">Login</span></div></a><button class="flex items-center gap-space-xs text-on-surface-variant hover:text-on-surface transition-colors p-space-sm" type="button"><span class="material-symbols-outlined text-[22px]">location_on</span><span class="hidden xl:inline font-label-md text-body-md">Deliver: Set location</span></button><a class="relative p-space-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="wishlist" href="#"><span class="material-symbols-outlined text-[22px]">favorite</span><span class="absolute top-0 right-0 w-4 h-4 bg-secondary text-on-secondary rounded-[0.75rem] font-label-sm text-[10px] flex items-center justify-center leading-none">0</span></a><a class="relative flex items-center gap-space-xs bg-surface-container px-space-md py-space-sm rounded-[0.5rem] text-on-surface hover:bg-surface-container-high transition-colors" data-path="shopping-cart" href="#"><span class="material-symbols-outlined text-[22px] text-primary">shopping_bag</span><div class="hidden md:flex flex-col"><span class="font-label-sm text-[13px] text-outline leading-none">Cart</span><span class="font-label-md text-[14px] font-bold leading-none mt-space-xs">₹0.00</span></div><span class="w-5 h-5 bg-primary-container text-on-primary rounded-[0.75rem] font-label-sm text-[10px] flex items-center justify-center">0</span></a><img alt="Profile" class="w-9 h-9 rounded-[0.75rem] object-cover ring-2 ring-outline-variant" src="https://lh3.googleusercontent.com/aida/AEtjO1Un9x8CHR_-p-CIgmaBKkaPyMph2iSd5AhpOqf1jwrYYwPbD-hrhLoaGlek1w-YJmy676HGivMA7_GmqATGmcdbzOwrKGg2pIWcZryZDf1Zm1Z2F-8J05_TonA2NSO48NzGXl-96wrmb_cGYLQfjPmxOmuOws4Ak26XQM0oChFh-F47qFtYNh3G4aTnYqUFa4KHQ-n6rSbm6F3JSLWvPNS8_TIkaghURpjO8vb_WO3-puebtETUHyIY2tTUX-_lE2pObRu727WE-A"/></div></div></div><div class="bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="max-w-7xl mx-auto px-gutter"><nav class="flex flex-wrap items-center justify-start gap-space-xs md:gap-x-3 lg:gap-x-7 2xl:gap-x-9 font-label-lg text-[15px] leading-5 font-semibold" data-active-classes="text-primary font-bold bg-surface-container-low"><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="home" href="#">HOME</a><div class="relative group"><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem] flex items-center gap-space-xs" data-path="shop" href="#"><span>SHOP</span><span class="material-symbols-outlined text-[16px]">expand_more</span></a></div><div class="relative group"><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem] flex items-center gap-space-xs" data-path="combo-packs" href="#"><span>COMBO PACKS</span><span class="material-symbols-outlined text-[16px]">expand_more</span></a></div><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="about-us" href="#">ABOUT US</a><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="track-order" href="#">TRACK ORDER</a><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="contact-us" href="#">CONTACT US</a></nav></div></div></header>
+<!-- END: MainHeader -->
+<!-- BEGIN: BreadcrumbAndTitle -->
+<section class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-6 pb-2" data-purpose="page-heading">
+<div class="flex items-center space-x-2 text-xs text-gray-500 mb-2">
+<a class="hover:text-brand-red" href="#">Home</a>
+<span>/</span>
+<span class="text-gray-800 font-medium">Your Shopping Cart</span>
+</div>
+<h1 class="text-2xl sm:text-3xl font-bold text-gray-900 brand-title tracking-tight">Your Shopping Cart</h1>
+</section>
+<!-- END: BreadcrumbAndTitle -->
+<!-- BEGIN: MainContent -->
+<main class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 mb-auto" data-purpose="cart-content">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Cart Items Section (Left Column) -->
+<section class="lg:col-span-8 bg-white border border-[#e5e0d8] rounded-md shadow-sm p-4 sm:p-6" data-purpose="cart-items-table">
+<!-- Table Column Header -->
+<div class="hidden sm:grid grid-cols-12 text-xs font-semibold text-gray-500 uppercase tracking-wider pb-3 border-b border-gray-200">
+<div class="col-span-6">Product</div>
+<div class="col-span-2 text-center">Price</div>
+<div class="col-span-2 text-center">Quantity</div>
+<div class="col-span-2 text-right">Total</div>
+</div>
+<!-- Items Container -->
+<div class="divide-y divide-gray-100">
+<!-- Item 1: Chilli Powder -->
+<div class="py-4 sm:py-5 grid grid-cols-1 sm:grid-cols-12 items-center gap-4" data-purpose="cart-item">
+<!-- Product info -->
+<div class="sm:col-span-6 flex items-center space-x-4">
+<div class="w-16 h-16 flex-shrink-0 bg-red-50 border border-red-100 rounded-md p-1 flex items-center justify-center">
+<img alt="Chilli Powder" class="w-full h-full object-cover rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwGPWhvTZvCZsgJSSMTCXnUYi0Yu_R1veRcG1Zgw5att4bbO6pnIrhJfiuRuuXFfXTsH6oEeJf8pGDXyhQro9UOaHJcRA0Es5qoqFO5Ni4B5vetmk5obc4yrWjkKcZZ_WFz4iDNa0vTxa-IO5Uq99IAw2MNPgW5RhVsAkj6jlRhWYHLSxiqQNI165EoQ9fbr3Xtf-u1nbbzx8O4nDJ0bDX-aaaqeN5CWlJfhBul74NvC-Ep79a84NDsg"/>
+</div>
+<div>
+<h3 class="font-semibold text-gray-900 text-sm sm:text-base">Chilli Powder (200g)</h3>
+<p class="text-xs text-gray-500 mt-0.5">Category: Single Masalas</p>
+<div class="sm:hidden mt-1 font-semibold text-gray-900 text-sm">₹159</div>
+</div>
+</div>
+<!-- Price -->
+<div class="hidden sm:block sm:col-span-2 text-center text-sm font-medium text-gray-700">
+              ₹159
+            </div>
+<!-- Quantity Control -->
+<div class="sm:col-span-2 flex items-center justify-start sm:justify-center">
+<div class="flex items-center border border-gray-300 rounded overflow-hidden">
+<button aria-label="Decrease quantity" class="px-2.5 py-1 text-gray-600 bg-gray-50 hover:bg-gray-200 transition text-sm font-semibold" type="button">−</button>
+<span class="px-3 py-1 text-xs font-medium text-gray-900 bg-white">1</span>
+<button aria-label="Increase quantity" class="px-2.5 py-1 text-gray-600 bg-gray-50 hover:bg-gray-200 transition text-sm font-semibold" type="button">+</button>
+</div>
+</div>
+<!-- Total and Remove -->
+<div class="sm:col-span-2 flex items-center justify-between sm:justify-end space-x-3">
+<span class="text-sm font-bold text-gray-900">₹159</span>
+<button aria-label="Remove item" class="text-red-500 hover:text-red-700 p-1 transition" title="Remove Item" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Item 2: Turmeric Powder -->
+<div class="py-4 sm:py-5 grid grid-cols-1 sm:grid-cols-12 items-center gap-4" data-purpose="cart-item">
+<!-- Product info -->
+<div class="sm:col-span-6 flex items-center space-x-4">
+<div class="w-16 h-16 flex-shrink-0 bg-amber-50 border border-amber-100 rounded-md p-1 flex items-center justify-center">
+<img alt="Turmeric Powder" class="w-full h-full object-cover rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzC9LQYT5u-L0_7X2UaNM80c6bYP2vZvAvg2LWWUgNUoF39btIBzyy0tTGVLL3GHormFLsv2VEh5qjhR8_4tugIrJ-qk-UV_OZAwGM6UWF6lAdasZr3HDO06wlQ9-lttYKTaay_KFnMhe8uGkusmlFLLQycu3kK6fUa5ahE8PgqAp0fP8sL8bC6fiqkmc3Z8BsFJEvbFJiE4Q_eSlfrAbixeeAfybg3787b3kadGfxgPHxfCDWTv-bmQ"/>
+</div>
+<div>
+<h3 class="font-semibold text-gray-900 text-sm sm:text-base">Turmeric Powder (200g)</h3>
+<p class="text-xs text-gray-500 mt-0.5">Category: Single Masalas</p>
+<div class="sm:hidden mt-1 font-semibold text-gray-900 text-sm">₹149</div>
+</div>
+</div>
+<!-- Price -->
+<div class="hidden sm:block sm:col-span-2 text-center text-sm font-medium text-gray-700">
+              ₹149
+            </div>
+<!-- Quantity Control -->
+<div class="sm:col-span-2 flex items-center justify-start sm:justify-center">
+<div class="flex items-center border border-gray-300 rounded overflow-hidden">
+<button aria-label="Decrease quantity" class="px-2.5 py-1 text-gray-600 bg-gray-50 hover:bg-gray-200 transition text-sm font-semibold" type="button">−</button>
+<span class="px-3 py-1 text-xs font-medium text-gray-900 bg-white">1</span>
+<button aria-label="Increase quantity" class="px-2.5 py-1 text-gray-600 bg-gray-50 hover:bg-gray-200 transition text-sm font-semibold" type="button">+</button>
+</div>
+</div>
+<!-- Total and Remove -->
+<div class="sm:col-span-2 flex items-center justify-between sm:justify-end space-x-3">
+<span class="text-sm font-bold text-gray-900">₹149</span>
+<button aria-label="Remove item" class="text-red-500 hover:text-red-700 p-1 transition" title="Remove Item" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Item 3: Garam Masala -->
+<div class="py-4 sm:py-5 grid grid-cols-1 sm:grid-cols-12 items-center gap-4" data-purpose="cart-item">
+<!-- Product info -->
+<div class="sm:col-span-6 flex items-center space-x-4">
+<div class="w-16 h-16 flex-shrink-0 bg-yellow-50 border border-yellow-100 rounded-md p-1 flex items-center justify-center">
+<img alt="Garam Masala" class="w-full h-full object-cover rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPmU4HtOxueZ4CBBO985kfwyjjo9b71Vs9o_yI3Zztw1_gHu_-Ia934DAzBvR3Ppo72Ak6PynKQRGHMvgjmZikJZgo3yuhwQT_WV4URDz59_JZoWA0epN4b9ms1P9JyUK70iEaGzG3_N4HeF_JwGCyyjEuAu7vUVsxzgR2T43vTzzbwvY7V55SGgu-e4wIQX0TJ_9SBHEzdaCt1pB1JkTE0k06TKk00UAlzZ97Im3N1bMz7k_loX62Cg"/>
+</div>
+<div>
+<h3 class="font-semibold text-gray-900 text-sm sm:text-base">Garam Masala (100g)</h3>
+<p class="text-xs text-gray-500 mt-0.5">Category: Blended Masalas</p>
+<div class="sm:hidden mt-1 font-semibold text-gray-900 text-sm">₹179</div>
+</div>
+</div>
+<!-- Price -->
+<div class="hidden sm:block sm:col-span-2 text-center text-sm font-medium text-gray-700">
+              ₹179
+            </div>
+<!-- Quantity Control -->
+<div class="sm:col-span-2 flex items-center justify-start sm:justify-center">
+<div class="flex items-center border border-gray-300 rounded overflow-hidden">
+<button aria-label="Decrease quantity" class="px-2.5 py-1 text-gray-600 bg-gray-50 hover:bg-gray-200 transition text-sm font-semibold" type="button">−</button>
+<span class="px-3 py-1 text-xs font-medium text-gray-900 bg-white">1</span>
+<button aria-label="Increase quantity" class="px-2.5 py-1 text-gray-600 bg-gray-50 hover:bg-gray-200 transition text-sm font-semibold" type="button">+</button>
+</div>
+</div>
+<!-- Total and Remove -->
+<div class="sm:col-span-2 flex items-center justify-between sm:justify-end space-x-3">
+<span class="text-sm font-bold text-gray-900">₹179</span>
+<button aria-label="Remove item" class="text-red-500 hover:text-red-700 p-1 transition" title="Remove Item" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+<!-- Back to Shopping Link -->
+<div class="pt-6 mt-4 border-t border-gray-200">
+<a class="inline-flex items-center text-sm font-semibold text-brand-red hover:underline" href="#">
+<svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+            Continue Shopping
+          </a>
+</div>
+</section>
+<!-- Order Summary Section (Right Column) -->
+<aside class="lg:col-span-4" data-purpose="order-summary-sidebar">
+<div class="bg-white border border-[#e5e0d8] rounded-md shadow-sm p-6 sticky top-28">
+<h2 class="text-lg font-bold text-gray-900 pb-3 border-b border-gray-200 brand-title">Order Summary</h2>
+<!-- Price Calculations -->
+<div class="py-4 space-y-3 text-sm">
+<div class="flex justify-between text-gray-600">
+<span>Subtotal</span>
+<span class="font-medium text-gray-900">₹487</span>
+</div>
+<div class="flex justify-between items-center text-gray-600">
+<span>Shipping</span>
+<span class="font-bold text-[#1b4d29] text-xs uppercase bg-[#eaf4ee] px-2 py-0.5 rounded">FREE</span>
+</div>
+<div class="flex justify-between items-center text-gray-600" style="display:none">
+<span>Discount</span>
+<span class="font-medium text-[#781616]">-₹24</span>
+</div>
+<div class="border-t border-dashed border-gray-200 pt-3 flex justify-between items-baseline">
+<span class="text-base font-bold text-gray-900">Total</span>
+<span class="text-xl font-extrabold text-gray-900">₹463</span>
+</div>
+</div>
+<!-- Checkout CTA Button -->
+<div class="mt-4">
+<a class="w-full block text-center bg-[#1b4d29] hover:bg-[#143c1f] text-white font-bold py-3.5 px-4 rounded text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition duration-200" data-purpose="proceed-checkout-button" href="#">
+              Proceed to Checkout
+            </a>
+</div>
+<!-- Coupon Code Input -->
+<div class="mt-6 pt-4 border-t border-gray-100">
+<label class="block text-xs font-medium text-gray-600 mb-1.5" for="coupon-code">Have a coupon code?</label>
+<div class="flex space-x-2">
+<input class="flex-1 text-xs border border-gray-300 rounded px-3 py-2 uppercase focus:ring-1 focus:ring-brand-red focus:border-brand-red outline-none" id="coupon-code" placeholder="Enter coupon code" type="text"/>
+<button class="bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-2 rounded transition border border-gray-300" type="button">
+                Apply
+              </button>
+</div>
+</div>
+<!-- Trust & Guarantees -->
+<div class="mt-6 pt-4 border-t border-gray-100 space-y-2">
+<div class="flex items-center text-xs text-gray-500">
+<svg class="w-4 h-4 text-brand-green mr-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>100% Secure Payments</span>
+</div>
+<div class="flex items-center text-xs text-gray-500">
+<svg class="w-4 h-4 text-brand-green mr-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Authentic &amp; Freshly Packed Spices</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: MainFooter -->
+<footer class="bg-[#f0ebe1] border-t border-[#e2dcd2] text-gray-700 text-xs mt-12" data-purpose="site-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<!-- About AromaSpice -->
+<div class="space-y-3">
+<div class="font-bold text-base text-[#781616] brand-title">AromaSpice</div>
+<p class="text-gray-600 leading-relaxed">
+            Bringing authentic Indian flavours straight from traditional spice farms to your kitchen. 100% natural and preservative-free.
+          </p>
+</div>
+<!-- Quick Links -->
+<div>
+<h4 class="font-bold uppercase tracking-wider text-gray-900 mb-3">Quick Links</h4>
+<ul class="space-y-2">
+<li><a class="hover:text-brand-red transition" href="#">All Products</a></li>
+<li><a class="hover:text-brand-red transition" href="#">Single Masalas</a></li>
+<li><a class="hover:text-brand-red transition" href="#">Blended Masalas</a></li>
+<li><a class="hover:text-brand-red transition" href="#">Combo Value Packs</a></li>
+</ul>
+</div>
+<!-- Customer Care -->
+<div>
+<h4 class="font-bold uppercase tracking-wider text-gray-900 mb-3">Customer Service</h4>
+<ul class="space-y-2">
+<li><a class="hover:text-brand-red transition" href="#">Track Order</a></li>
+<li><a class="hover:text-brand-red transition" href="#">Shipping Policy</a></li>
+<li><a class="hover:text-brand-red transition" href="#">Returns &amp; Refunds</a></li>
+<li><a class="hover:text-brand-red transition" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<!-- Contact details -->
+<div>
+<h4 class="font-bold uppercase tracking-wider text-gray-900 mb-3">Need Help?</h4>
+<p class="text-gray-600 mb-2">Email: Aromaspice@gmail.com</p>
+<p class="text-gray-600 mb-2">Phone: +91 9042713404</p>
+<p class="text-gray-500 text-[11px] mt-2">Mon - Sat: 9:00 AM - 7:00 PM</p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-[#e2dcd2] flex flex-col sm:flex-row items-center justify-between text-gray-500">
+<p>© 2024 AromaSpice by Narus Foods. All rights reserved.</p>
+<p class="mt-2 sm:mt-0">FSSAI Certified | Handcrafted with Care</p>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+<style>
+/* QA BUG-08 fix: header action row must wrap on small screens (was causing horizontal page scroll) */
+@media (max-width: 767px) {
+  .flex.items-center.space-x-6 { flex-wrap: wrap; row-gap: 0.5rem; }
+}
+</style>
+</body></html>

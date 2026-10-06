@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AromaSpice Admin - Reports</title>
+<!-- Tailwind CSS v3 with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#1b4d29',
+              dark: '#143b1f',
+              light: '#246b3a',
+              accent: '#851b1b',
+              muted: '#f4f6f4'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-scrollbar">
+    /* Subtle custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-800">
+<div class="min-h-screen flex flex-col md:flex-row">
+<!-- BEGIN: Sidebar -->
+<aside class="w-full md:w-64 bg-[#142319] text-white flex-shrink-0 flex flex-col justify-between shadow-xl" data-purpose="admin-sidebar">
+<div>
+<!-- Brand Header -->
+<div class="h-20 flex items-center px-6 border-b border-white/10 gap-3">
+<div class="w-10 h-10 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold text-xl shadow-md">
+            AS
+          </div>
+<div>
+<h1 class="font-serif font-bold text-lg leading-tight tracking-wide text-white">AromaSpice</h1>
+<span class="text-xs text-emerald-400 font-medium tracking-wider uppercase">Admin Portal</span>
+</div>
+</div>
+<!-- Navigation Menu -->
+<nav aria-label="Admin Navigation" class="mt-6 px-3 space-y-1.5">
+<!-- Active Link: Dashboard -->
+<a class="flex items-center gap-3 px-3.5 py-3 text-sm font-medium rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors duration-150" href="/admin/dashboard">
+<svg aria-hidden="true" class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Dashboard</span>
+</a>
+<!-- Products -->
+<a class="flex items-center gap-3 px-3.5 py-3 text-sm font-medium rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors duration-150" href="/admin/products">
+<svg aria-hidden="true" class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Products</span>
+</a>
+<!-- Orders -->
+<a class="flex items-center gap-3 px-3.5 py-3 text-sm font-medium rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors duration-150" href="/admin/orders">
+<svg aria-hidden="true" class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Orders</span>
+</a>
+<!-- Customers -->
+<a class="flex items-center gap-3 px-3.5 py-3 text-sm font-medium rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors duration-150" href="/admin/customers">
+<svg aria-hidden="true" class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Customers</span>
+</a>
+<!-- Reports -->
+<a class="flex items-center gap-3 px-3.5 py-3 text-sm font-semibold rounded-lg bg-white/15 text-white shadow-sm transition-colors duration-150" href="/admin/reports">
+<svg aria-hidden="true" class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Reports</span>
+</a>
+<!-- Settings -->
+<a class="flex items-center gap-3 px-3.5 py-3 text-sm font-medium rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors duration-150" href="/admin/settings">
+<svg aria-hidden="true" class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<!-- Footer / Logout -->
+<div class="p-4 border-t border-white/10">
+<a class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg text-red-300 hover:text-red-200 hover:bg-red-500/10 transition-colors duration-150" href="#">
+<svg aria-hidden="true" class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: MainContent -->
+<main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+<!-- Top Bar -->
+<header class="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-6 lg:px-8">
+<div>
+<h2 class="text-2xl font-bold text-slate-800 tracking-tight">Reports</h2>
+<p class="text-xs text-slate-500 mt-0.5">Store performance, orders and revenue at a glance</p>
+</div>
+<!-- Quick Profile & Notification -->
+<div class="flex items-center gap-4 cursor-pointer select-none" data-purpose="admin-profile" role="button" tabindex="0" aria-haspopup="menu" aria-expanded="false" title="Admin account menu">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-semibold text-slate-800">Admin Manager</p>
+<p class="text-xs text-slate-500">store@aromaspice.com</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center font-semibold text-sm shadow-sm ring-2 ring-emerald-500/20">
+            AM
+          </div>
+</div>
+</header>
+<div class="p-6 space-y-6">
+<!-- BEGIN: KPIStats -->
+<!-- 4 Metric summary cards -->
+<section aria-labelledby="overview-stats">
+<h3 class="sr-only" id="overview-stats">Key Performance Indicators</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<!-- Card 1: Total Orders -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow transition-shadow" data-purpose="stat-card">
+<span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Total Orders</span>
+<div class="mt-2 flex items-baseline justify-between">
+<span class="text-3xl font-extrabold text-slate-900">—</span>
+</div>
+<div class="mt-2 flex items-center text-xs font-semibold text-emerald-600">
+<svg class="w-4 h-4 mr-1 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" fill-rule="evenodd"></path>
+</svg>
+<span>Live store data</span>
+</div>
+</div>
+<!-- Card 2: Total Customers -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow transition-shadow" data-purpose="stat-card">
+<span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Total Customers</span>
+<div class="mt-2 flex items-baseline justify-between">
+<span class="text-3xl font-extrabold text-slate-900">—</span>
+</div>
+<div class="mt-2 flex items-center text-xs font-semibold text-emerald-600">
+<svg class="w-4 h-4 mr-1 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" fill-rule="evenodd"></path>
+</svg>
+<span>Live store data</span>
+</div>
+</div>
+<!-- Card 3: Total Products -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow transition-shadow" data-purpose="stat-card">
+<span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Total Products</span>
+<div class="mt-2 flex items-baseline justify-between">
+<span class="text-3xl font-extrabold text-slate-900">—</span>
+</div>
+<div class="mt-2 flex items-center text-xs font-semibold text-emerald-600">
+<svg class="w-4 h-4 mr-1 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" fill-rule="evenodd"></path>
+</svg>
+<span>Live store data</span>
+</div>
+</div>
+<!-- Card 4: Total Revenue -->
+<div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow transition-shadow" data-purpose="stat-card">
+<span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Total Revenue</span>
+<div class="mt-2 flex items-baseline justify-between">
+<span class="text-3xl font-extrabold text-slate-900">—</span>
+</div>
+<div class="mt-2 flex items-center text-xs font-semibold text-emerald-600">
+<svg class="w-4 h-4 mr-1 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" fill-rule="evenodd"></path>
+</svg>
+<span>Live store data</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: KPIStats -->
+<!-- BEGIN: RecentOrders -->
+<section aria-labelledby="recent-orders-heading" class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+<!-- Card Header with Table Title and Link -->
+<div class="px-6 py-4.5 border-b border-slate-100 flex items-center justify-between">
+<h3 class="font-bold text-base text-slate-900" id="recent-orders-heading">Recent Orders</h3>
+<a class="text-xs font-semibold text-brand hover:text-emerald-700 flex items-center gap-1 group" href="/admin/orders">
+<span>View All Orders</span>
+<span class="transition-transform group-hover:translate-x-0.5">&gt;</span>
+</a>
+</div>
+<!-- Orders Table Container -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse text-sm">
+<thead>
+<tr class="bg-slate-50 text-slate-500 uppercase text-[11px] font-semibold tracking-wider border-b border-slate-200">
+<th class="py-3.5 px-6" scope="col">Order ID</th>
+<th class="py-3.5 px-6" scope="col">Customer</th>
+<th class="py-3.5 px-6" scope="col">Date</th>
+<th class="py-3.5 px-6" scope="col">Amount</th>
+<th class="py-3.5 px-6 text-center" scope="col">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100"></tbody>
+</table>
+</div>
+</section>
+<!-- END: RecentOrders -->
+</div>
+</main>
+<!-- END: MainContent -->
+</div>
+</body></html>

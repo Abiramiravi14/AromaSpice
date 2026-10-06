@@ -1,0 +1,16 @@
+# Secrets — never commit
+.env
+
+# Dependencies & build
+node_modules/
+
+# Test artifacts
+playwright-report/
+test-results/
+*.log
+
+# OS/editor noise
+.DS_Store
+*.swp
+
+*_REPORT.md

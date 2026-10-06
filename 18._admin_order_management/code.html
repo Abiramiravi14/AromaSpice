@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Order Management - AromaSpice</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#1e242b',
+              sidebar: '#14181d',
+              active: '#27313a',
+              accent: '#105b38'
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- Font Awesome for Admin Navigation and Action Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style data-purpose="custom-typography">
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#f8f9fa] text-gray-800 antialiased min-h-screen flex">
+<!-- BEGIN: AdminSidebar -->
+<!-- Left-hand administrative navigation panel -->
+<aside class="w-64 bg-[#181d22] text-gray-300 flex-shrink-0 flex flex-col justify-between min-h-screen border-r border-gray-800" data-purpose="admin-sidebar">
+<div class="py-4">
+<!-- Sidebar Navigation Items -->
+<nav class="space-y-1 px-3">
+<!-- Dashboard Item -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-xs font-medium text-gray-400 hover:text-white hover:bg-[#222830] transition-colors" href="/admin/dashboard">
+<i class="fa-solid fa-gauge w-4 text-center text-sm"></i>
+<span>Dashboard</span>
+</a>
+<!-- Products Item -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-xs font-medium text-gray-400 hover:text-white hover:bg-[#222830] transition-colors" href="/admin/products">
+<i class="fa-solid fa-box-archive w-4 text-center text-sm"></i>
+<span>Products</span>
+</a>
+<!-- Orders Item (Active) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-xs font-semibold text-white bg-[#252d37] border-l-2 border-emerald-500 shadow-sm" href="/admin/orders">
+<i class="fa-solid fa-clipboard-list w-4 text-center text-sm text-emerald-400"></i>
+<span>Orders</span>
+</a>
+<!-- Customers Item -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-xs font-medium text-gray-400 hover:text-white hover:bg-[#222830] transition-colors" href="/admin/customers">
+<i class="fa-solid fa-users w-4 text-center text-sm"></i>
+<span>Customers</span>
+</a>
+<!-- Reports Item -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-xs font-medium text-gray-400 hover:text-white hover:bg-[#222830] transition-colors" href="/admin/reports">
+<i class="fa-solid fa-chart-simple w-4 text-center text-sm"></i>
+<span>Reports</span>
+</a>
+<!-- Settings Item -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-xs font-medium text-gray-400 hover:text-white hover:bg-[#222830] transition-colors" href="/admin/settings">
+<i class="fa-solid fa-gear w-4 text-center text-sm"></i>
+<span>Settings</span>
+</a>
+<!-- Logout Item -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded text-xs font-medium text-gray-400 hover:text-rose-400 hover:bg-[#222830] transition-colors" href="#">
+<i class="fa-solid fa-power-off w-4 text-center text-sm"></i>
+<span>Logout</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Bottom Status/Meta info -->
+<div class="px-5 py-4 border-t border-gray-800 text-[11px] text-gray-500">
+      AromaSpice Admin v1.0
+    </div>
+</aside>
+<!-- END: AdminSidebar -->
+<!-- BEGIN: MainContentArea -->
+<!-- Primary content area housing orders data table -->
+<main class="flex-1 bg-white p-8 overflow-y-auto" data-purpose="orders-management-main">
+<!-- Header Section with Title -->
+<header class="flex items-center justify-between pb-6 mb-6 border-b border-gray-100">
+<div>
+<h1 class="text-xl font-bold text-gray-800 tracking-tight">Orders</h1>
+</div>
+</header>
+<!-- Orders Data Table Container -->
+<div class="overflow-x-auto rounded-sm" data-purpose="orders-table-wrapper">
+<table class="w-full text-left border-collapse text-xs">
+<thead>
+<tr class="border-b border-gray-200 text-gray-600 font-semibold text-[11px]">
+<th class="py-3 px-4 font-semibold">Order ID</th>
+<th class="py-3 px-4 font-semibold">Customer</th>
+<th class="py-3 px-4 font-semibold">Date</th>
+<th class="py-3 px-4 font-semibold">Amount</th>
+<th class="py-3 px-4 font-semibold">Status</th>
+<th class="py-3 px-4 font-semibold text-center w-28">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-gray-100 text-gray-700">
+<!-- Row 1: Delivered -->
+<tr class="hover:bg-gray-50/80 transition-colors">
+<td class="py-3.5 px-4 font-medium text-gray-700">#AS987654321</td>
+<td class="py-3.5 px-4 text-gray-600">Riya Sharma</td>
+<td class="py-3.5 px-4 text-gray-500">20 May 2024</td>
+<td class="py-3.5 px-4 text-gray-700 font-medium">₹463</td>
+<td class="py-3.5 px-4">
+<span class="inline-block px-2.5 py-0.5 text-[11px] font-medium text-emerald-600 bg-emerald-50 rounded border border-emerald-100">
+                Delivered
+              </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="flex items-center justify-center gap-3 text-gray-400">
+<button class="hover:text-blue-600 transition-colors" title="View Details">
+<i class="fa-regular fa-eye text-xs"></i>
+</button>
+<button class="hover:text-amber-600 transition-colors" title="Edit Order">
+<i class="fa-solid fa-pen text-xs"></i>
+</button>
+<button class="hover:text-rose-600 transition-colors" title="Delete Order">
+<i class="fa-regular fa-trash-can text-xs"></i>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Shipped -->
+<tr class="hover:bg-gray-50/80 transition-colors">
+<td class="py-3.5 px-4 font-medium text-gray-700">#AS986543210</td>
+<td class="py-3.5 px-4 text-gray-600">Arjun Patel</td>
+<td class="py-3.5 px-4 text-gray-500">20 May 2024</td>
+<td class="py-3.5 px-4 text-gray-700 font-medium">₹349</td>
+<td class="py-3.5 px-4">
+<span class="inline-block px-2.5 py-0.5 text-[11px] font-medium text-blue-600 bg-blue-50 rounded border border-blue-100">
+                Shipped
+              </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="flex items-center justify-center gap-3 text-gray-400">
+<button class="hover:text-blue-600 transition-colors" title="View Details">
+<i class="fa-regular fa-eye text-xs"></i>
+</button>
+<button class="hover:text-amber-600 transition-colors" title="Edit Order">
+<i class="fa-solid fa-pen text-xs"></i>
+</button>
+<button class="hover:text-rose-600 transition-colors" title="Delete Order">
+<i class="fa-regular fa-trash-can text-xs"></i>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Processing -->
+<tr class="hover:bg-gray-50/80 transition-colors">
+<td class="py-3.5 px-4 font-medium text-gray-700">#AS985432109</td>
+<td class="py-3.5 px-4 text-gray-600">Neha Verma</td>
+<td class="py-3.5 px-4 text-gray-500">19 May 2024</td>
+<td class="py-3.5 px-4 text-gray-700 font-medium">₹599</td>
+<td class="py-3.5 px-4">
+<span class="inline-block px-2.5 py-0.5 text-[11px] font-medium text-orange-500 bg-orange-50 rounded border border-orange-100">
+                Processing
+              </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="flex items-center justify-center gap-3 text-gray-400">
+<button class="hover:text-blue-600 transition-colors" title="View Details">
+<i class="fa-regular fa-eye text-xs"></i>
+</button>
+<button class="hover:text-amber-600 transition-colors" title="Edit Order">
+<i class="fa-solid fa-pen text-xs"></i>
+</button>
+<button class="hover:text-rose-600 transition-colors" title="Delete Order">
+<i class="fa-regular fa-trash-can text-xs"></i>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Cancelled -->
+<tr class="hover:bg-gray-50/80 transition-colors">
+<td class="py-3.5 px-4 font-medium text-gray-700">#AS984321098</td>
+<td class="py-3.5 px-4 text-gray-600">Karan Singh</td>
+<td class="py-3.5 px-4 text-gray-500">18 May 2024</td>
+<td class="py-3.5 px-4 text-gray-700 font-medium">₹249</td>
+<td class="py-3.5 px-4">
+<span class="inline-block px-2.5 py-0.5 text-[11px] font-medium text-rose-500 bg-rose-50 rounded border border-rose-100">
+                Cancelled
+              </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="flex items-center justify-center gap-3 text-gray-400">
+<button class="hover:text-blue-600 transition-colors" title="View Details">
+<i class="fa-regular fa-eye text-xs"></i>
+</button>
+<button class="hover:text-amber-600 transition-colors" title="Edit Order">
+<i class="fa-solid fa-pen text-xs"></i>
+</button>
+<button class="hover:text-rose-600 transition-colors" title="Delete Order">
+<i class="fa-regular fa-trash-can text-xs"></i>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Delivered -->
+<tr class="hover:bg-gray-50/80 transition-colors">
+<td class="py-3.5 px-4 font-medium text-gray-700">#AS983210987</td>
+<td class="py-3.5 px-4 text-gray-600">Pooja Mehta</td>
+<td class="py-3.5 px-4 text-gray-500">17 May 2024</td>
+<td class="py-3.5 px-4 text-gray-700 font-medium">₹199</td>
+<td class="py-3.5 px-4">
+<span class="inline-block px-2.5 py-0.5 text-[11px] font-medium text-emerald-600 bg-emerald-50 rounded border border-emerald-100">
+                Delivered
+              </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<div class="flex items-center justify-center gap-3 text-gray-400">
+<button class="hover:text-blue-600 transition-colors" title="View Details">
+<i class="fa-regular fa-eye text-xs"></i>
+</button>
+<button class="hover:text-amber-600 transition-colors" title="Edit Order">
+<i class="fa-solid fa-pen text-xs"></i>
+</button>
+<button class="hover:text-rose-600 transition-colors" title="Delete Order">
+<i class="fa-regular fa-trash-can text-xs"></i>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</main>
+<!-- END: MainContentArea -->
+</body></html>

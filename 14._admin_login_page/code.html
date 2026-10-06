@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Login - AromaSpice</title>
+<!-- Tailwind CSS CDN with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#fdf9f4',
+              bgLight: '#fbf5ed',
+              darkGreen: '#1b4d29',
+              darkGreenHover: '#143c1f',
+              borderGold: '#e3d2be',
+              spiceRed: '#b93815',
+              subtleGray: '#66615b',
+            }
+          },
+          fontFamily: {
+            serif: ['Georgia', 'Cambria', 'serif'],
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for Typography & Details -->
+<style data-purpose="custom-styling">
+    .font-admin-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    .custom-input:focus {
+      outline: none;
+      border-color: #1b4d29;
+      box-shadow: 0 0 0 1px #1b4d29;
+    }
+  </style>
+</head>
+<body class="bg-[#fcf8f2] min-h-screen text-[#2b2b2b] flex flex-col font-sans antialiased selection:bg-[#1b4d29] selection:text-white">
+<!-- BEGIN: MainContent -->
+<main class="flex-grow flex items-center justify-center p-4 sm:p-6 lg:p-8" data-purpose="admin-login-wrapper">
+<!-- Login Container Card -->
+<div class="w-full max-w-4xl bg-white rounded-xl shadow-lg border border-[#eadaaf]/60 overflow-hidden flex flex-col md:flex-row relative">
+<!-- Left Panel: Login Form -->
+<section aria-labelledby="admin-login-title" class="w-full md:w-1/2 p-8 sm:p-10 lg:p-12 flex flex-col justify-center" data-purpose="login-form-section">
+<!-- Brand / Header Info -->
+<div class="mb-8 text-center md:text-left">
+<div class="inline-flex items-center gap-1.5 mb-3 text-xs tracking-widest uppercase font-semibold text-[#8b5e34]">
+<span class="w-2 h-2 rounded-full bg-[#1b4d29]"></span>
+<span>AromaSpice Management</span>
+</div>
+<h1 class="font-admin-serif text-3xl sm:text-4xl font-bold text-[#1f2937] tracking-tight" id="admin-login-title">Admin Login</h1>
+<p class="mt-2 text-sm text-[#706e6b]">Login to your admin account</p>
+</div>
+<!-- Form Element -->
+<form action="#" class="space-y-5" data-purpose="admin-credentials-form" method="POST" onsubmit="event.preventDefault();">
+<!-- Email Input Group -->
+<div>
+<label class="block text-xs font-semibold text-[#3b3a38] uppercase tracking-wider mb-2" for="admin-email">
+              Email Address
+            </label>
+<div class="relative">
+<input class="w-full rounded-md border border-[#d6cfc5] bg-[#faf8f5] px-3.5 py-2.5 text-sm text-gray-800 placeholder-[#9c978f] custom-input transition-colors duration-150" id="admin-email" name="email" placeholder="Enter admin email" required="" type="email"/>
+</div>
+</div>
+<!-- Password Input Group -->
+<div>
+<label class="block text-xs font-semibold text-[#3b3a38] uppercase tracking-wider mb-2" for="admin-password">
+              Password
+            </label>
+<div class="relative">
+<input class="w-full rounded-md border border-[#d6cfc5] bg-[#faf8f5] px-3.5 py-2.5 pr-10 text-sm text-gray-800 placeholder-[#9c978f] custom-input transition-colors duration-150" id="admin-password" name="password" placeholder="Enter password" required="" type="password"/>
+<!-- Password Visibility Toggle Button -->
+<button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 pr-3 flex items-center text-[#8e8880] hover:text-[#1b4d29] focus:outline-none" onclick="const pass = document.getElementById('admin-password'); pass.type = pass.type === 'password' ? 'text' : 'password';" type="button">
+<!-- Eye Icon -->
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Remember Me & Forgot Password Row -->
+<div class="flex items-center justify-between text-xs pt-1">
+<label class="flex items-center space-x-2 cursor-pointer select-none">
+<input class="rounded border-[#c8c0b5] text-[#1b4d29] focus:ring-[#1b4d29] focus:ring-offset-0 w-3.5 h-3.5" id="remember-me" name="remember" type="checkbox"/>
+<span class="text-[#595551]">Remember Me</span>
+</label>
+<a class="text-[#845c34] hover:text-[#1b4d29] hover:underline font-medium transition-colors" href="#">
+              Forgot Password?
+            </a>
+</div>
+<!-- Submit Button -->
+<div class="pt-2">
+<button class="w-full bg-[#1b4d29] hover:bg-[#143c1f] text-white font-medium py-2.5 px-4 rounded-md tracking-wider text-xs uppercase shadow transition duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1b4d29]" type="submit">
+              LOGIN
+            </button>
+</div>
+</form>
+<!-- Portal Security Badge/Disclaimer -->
+<div class="mt-8 pt-4 border-t border-[#f0eae1] flex items-center justify-center gap-2 text-xs text-[#8c857b]">
+<svg class="h-3.5 w-3.5 text-[#1b4d29]" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Authorized administrative personnel only</span>
+</div>
+</section>
+<!-- Right Panel: Spices Imagery Display (Panel 14 Visual) -->
+<section aria-label="AromaSpice Background Spice Display" class="hidden md:flex md:w-1/2 bg-[#faf4ec] relative overflow-hidden items-center justify-center p-6 border-l border-[#eee4d5]" data-purpose="visual-panel">
+<!-- Decorative Background Layer -->
+<div class="absolute inset-0 opacity-15 bg-repeat pointer-events-none" style="background-image: radial-gradient(#976e48 0.75px, transparent 0.75px); background-size: 16px 16px;"></div>
+<!-- Featured Traditional Spices Illustration / Image Composition -->
+<div class="relative w-full h-full flex flex-col items-center justify-center text-center z-10">
+<div class="relative max-w-sm rounded-lg overflow-hidden group">
+<img alt="Authentic Indian spices featuring dried red chillies, turmeric, cloves, star anise and wooden bowls" class="object-cover w-full h-[360px] rounded-lg shadow-sm border border-[#e6d8c7]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy4j24fg0l6hD6VtUhAzA0aw3S1FXIjsyjGmRDmpi9fjHeofx45JGFKt7jbJNwpYyDZZmZTnCJrkAxDadrRqaYFeSNSnCC1a3iEEeG22pKYhFQqZRVcO780j_Yom_UOcv8ZDsH7bePq_LZDJp2Zi-oV-EteouoTQQOlM6E_QOJYi15DQSD4GwwHrF1Tz_5zp69N6rOHsGPdX3Errlv3EUwTjH1kkKwQf_220aAOJSvpgdvOdOLD3I7YQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-lg"></div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: Footer -->
+<footer class="py-4 text-center text-xs text-[#8c857b] border-t border-[#ebdfcf] bg-[#faf6ef]" data-purpose="admin-footer">
+<p>© 2024 AromaSpice by Narus Foods. All rights reserved.</p>
+</footer>
+<!-- END: Footer -->
+</body></html>

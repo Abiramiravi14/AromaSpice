@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Profile - AromaSpice</title>
+<!-- Tailwind CSS CDN with forms and container-queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Font Awesome Icons for customer portal icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Google Fonts: Playfair Display & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {"primary-fixed":"#b9f0be","primary-container":"#1b4d29","on-secondary-fixed":"#410006","on-surface-variant":"#414941","background":"#f6fbf5","tertiary-fixed-dim":"#ffb77d","outline-variant":"#c1c9be","tertiary":"#482400","tertiary-container":"#693600","on-tertiary-fixed-variant":"#6e3900","on-primary-fixed-variant":"#1e502c","surface-container-low":"#f0f5f0","on-tertiary":"#ffffff","secondary-container":"#fe807d","inverse-surface":"#2c322e","surface-dim":"#d7dbd6","surface":"#f6fbf5","on-primary":"#ffffff","on-error":"#ffffff","inverse-on-surface":"#edf2ed","primary-fixed-dim":"#9dd3a4","surface-variant":"#dfe4df","on-surface":"#181d1a","primary":"#003615","surface-tint":"#376942","error-container":"#ffdad6","on-secondary-container":"#74181d","surface-container-high":"#e5e9e4","on-background":"#181d1a","on-error-container":"#93000a","surface-bright":"#f6fbf5","secondary-fixed":"#ffdad8","on-secondary-fixed-variant":"#832327","surface-container-highest":"#dfe4df","surface-container":"#ebefea","tertiary-fixed":"#ffdcc3","secondary":"#a33b3c","on-primary-container":"#88bd8f","on-secondary":"#ffffff","error":"#ba1a1a","outline":"#717970","on-tertiary-fixed":"#2f1500","secondary-fixed-dim":"#ffb3b0","on-primary-fixed":"#00210a","surface-container-lowest":"#ffffff","on-tertiary-container":"#ff9733","inverse-primary":"#9dd3a4",
+            brand: {
+              cream: '#fbf8f3',
+              darkGreen: '#1b4d29',
+              accentGreen: '#236134',
+              lightGreen: '#eef6f0',
+              crimson: '#a31e22',
+              sand: '#f3ece2',
+              border: '#e8dfd5',
+              dark: '#1c1917',
+              muted: '#6b7280'
+            }
+          },
+          spacing: {"margin-desktop":"3rem",margin:"2rem","space-md":"1rem","space-xl":"2.5rem","margin-mobile":"1rem",gutter:"1.5rem","space-lg":"1.5rem","gutter-sm":"1rem","gutter-lg":"2rem","space-sm":"0.5rem","space-xs":"0.25rem"},
+          fontSize: {"title-md":["16px",{lineHeight:"22px",fontWeight:"600"}],"title-lg":["18px",{lineHeight:"24px",fontWeight:"700"}],"headline-lg-mobile":["26px",{lineHeight:"32px",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"26px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"22px",fontWeight:"400"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"700"}],"headline-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"headline-sm":["20px",{lineHeight:"28px",fontWeight:"600"}],"headline-xl-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.01em",fontWeight:"700"}],"headline-xl":["48px",{lineHeight:"56px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-md":["24px",{lineHeight:"32px",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}]},
+          fontFamily: {"title-md":["Plus Jakarta Sans"],"title-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Playfair Display"],"body-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg":["Playfair Display"],"label-md":["Plus Jakarta Sans"],"headline-sm":["Playfair Display"],"headline-xl-mobile":["Playfair Display"],"headline-xl":["Playfair Display"],"headline-md":["Playfair Display"],"label-lg":["Plus Jakarta Sans"],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    };</script>
+<!-- Custom styles for layout & appearance -->
+<style data-purpose="custom-styling">
+    body {
+      background-color: #fbf8f3;
+      color: #292524;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-serif-title {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+</head>
+<body class="min-h-screen flex flex-col bg-brand-cream text-stone-800 antialiased pt-36">
+<!-- BEGIN: TopAnnouncement -->
+<div class="bg-brand-darkGreen text-brand-cream text-xs py-1.5 px-4 text-center tracking-wide font-medium" data-purpose="announcement-bar">
+    Pure Spices, Pure Love. | 100% Natural &amp; Hygienically Packed | Free Delivery on Orders Above ₹499
+  </div>
+<!-- END: TopAnnouncement -->
+<!-- BEGIN: MainHeader -->
+<header class="fixed top-0 left-0 w-full z-50 shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface"><div class="bg-surface-container-lowest py-space-md"><div class="max-w-7xl mx-auto px-gutter flex flex-wrap items-center justify-between gap-x-gutter-lg"><a class="flex flex-col flex-shrink-0 group" data-path="home" href="#"><span class="font-headline-md text-headline-md text-primary tracking-tight group-hover:text-primary-container transition-colors">AromaSpice</span><span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase -mt- space-xs">-- by Narus Foods --</span></a><div class="flex items-center gap-gutter-sm flex-shrink-0 max-sm:basis-full max-sm:justify-end"><a class="flex items-center gap-space-xs text-on-surface-variant hover:text-on-surface transition-colors py-space-xs px-space-sm" data-path="profile" href="#"><span class="material-symbols-outlined text-[22px]">person</span><div class="hidden lg:flex flex-col text-left"><span class="font-label-sm text-label-sm leading-none">Account</span><span class="font-label-md text-label-md font-bold leading-none mt-space-xs">Login</span></div></a><button class="flex items-center gap-space-xs text-on-surface-variant hover:text-on-surface transition-colors p-space-sm" type="button"><span class="material-symbols-outlined text-[22px]">location_on</span><span class="hidden xl:inline font-label-md text-body-md">Deliver: Set location</span></button><a class="relative p-space-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="wishlist" href="#"><span class="material-symbols-outlined text-[22px]">favorite</span><span class="absolute top-0 right-0 w-4 h-4 bg-secondary text-on-secondary rounded-[0.75rem] font-label-sm text-[10px] flex items-center justify-center leading-none">0</span></a><a class="relative flex items-center gap-space-xs bg-surface-container px-space-md py-space-sm rounded-[0.5rem] text-on-surface hover:bg-surface-container-high transition-colors" data-path="shopping-cart" href="#"><span class="material-symbols-outlined text-[22px] text-primary">shopping_bag</span><div class="hidden md:flex flex-col"><span class="font-label-sm text-[13px] text-outline leading-none">Cart</span><span class="font-label-md text-[14px] font-bold leading-none mt-space-xs">₹0.00</span></div><span class="w-5 h-5 bg-primary-container text-on-primary rounded-[0.75rem] font-label-sm text-[10px] flex items-center justify-center">0</span></a><img alt="Profile" class="w-9 h-9 rounded-[0.75rem] object-cover ring-2 ring-outline-variant" src="https://lh3.googleusercontent.com/aida/AEtjO1Un9x8CHR_-p-CIgmaBKkaPyMph2iSd5AhpOqf1jwrYYwPbD-hrhLoaGlek1w-YJmy676HGivMA7_GmqATGmcdbzOwrKGg2pIWcZryZDf1Zm1Z2F-8J05_TonA2NSO48NzGXl-96wrmb_cGYLQfjPmxOmuOws4Ak26XQM0oChFh-F47qFtYNh3G4aTnYqUFa4KHQ-n6rSbm6F3JSLWvPNS8_TIkaghURpjO8vb_WO3-puebtETUHyIY2tTUX-_lE2pObRu727WE-A"/></div></div></div><div class="bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="max-w-7xl mx-auto px-gutter"><nav class="flex flex-wrap items-center justify-start gap-space-xs md:gap-x-3 lg:gap-x-7 2xl:gap-x-9 font-label-lg text-[15px] leading-5 font-semibold" data-active-classes="text-primary font-bold bg-surface-container-low"><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="home" href="#">HOME</a><div class="relative group"><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem] flex items-center gap-space-xs" data-path="shop" href="#"><span>SHOP</span><span class="material-symbols-outlined text-[16px]">expand_more</span></a></div><div class="relative group"><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem] flex items-center gap-space-xs" data-path="combo-packs" href="#"><span>COMBO PACKS</span><span class="material-symbols-outlined text-[16px]">expand_more</span></a></div><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="about-us" href="#">ABOUT US</a><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="track-order" href="#">TRACK ORDER</a><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="contact-us" href="#">CONTACT US</a></nav></div></div></header>
+<!-- END: MainHeader -->
+<!-- BEGIN: Breadcrumb -->
+<div class="bg-brand-sand/40 border-b border-brand-border py-2 text-xs text-stone-600">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center space-x-2">
+<a class="hover:text-brand-darkGreen" href="#">Home</a>
+<span>/</span>
+<a class="hover:text-brand-darkGreen" href="#">My Account</a>
+<span>/</span>
+<span class="text-stone-900 font-medium">Customer Profile</span>
+</div>
+</div>
+<!-- END: Breadcrumb -->
+<!-- BEGIN: CustomerPortalLayout -->
+<main class="flex-1 py-8 md:py-10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Container Grid matching Panel 11 of reference -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 lg:gap-8 items-start">
+<!-- BEGIN: LeftSidebarMenu -->
+<aside class="md:col-span-1 bg-white rounded-lg border border-brand-border overflow-hidden shadow-sm">
+<nav class="flex flex-col text-sm font-medium" data-purpose="account-sidebar-navigation">
+<!-- Active item with deep green background and icon -->
+<a class="flex items-center px-4 py-3.5 bg-brand-darkGreen text-white font-semibold shadow-inner" href="#">
+<span class="w-6 text-center mr-2.5 text-sm"><i class="fas fa-user"></i></span>
+<span>My Profile</span>
+</a>
+<a class="flex items-center px-4 py-3.5 text-stone-700 hover:bg-stone-50 hover:text-brand-darkGreen border-b border-stone-100 transition-colors" href="#">
+<span class="w-6 text-center mr-2.5 text-sm text-stone-400"><i class="fas fa-map-marker-alt"></i></span>
+<span>Addresses</span>
+</a>
+<a class="flex items-center px-4 py-3.5 text-stone-700 hover:bg-stone-50 hover:text-brand-darkGreen border-b border-stone-100 transition-colors" href="#">
+<span class="w-6 text-center mr-2.5 text-sm text-stone-400"><i class="fas fa-shopping-bag"></i></span>
+<span>Order History</span>
+</a>
+<a class="flex items-center px-4 py-3.5 text-stone-700 hover:bg-stone-50 hover:text-brand-darkGreen border-b border-stone-100 transition-colors" href="#">
+<span class="w-6 text-center mr-2.5 text-sm text-stone-400"><i class="fas fa-truck"></i></span>
+<span>Track Orders</span>
+</a>
+<a class="flex items-center px-4 py-3.5 text-stone-700 hover:bg-stone-50 hover:text-brand-darkGreen border-b border-stone-100 transition-colors" href="#">
+<span class="w-6 text-center mr-2.5 text-sm text-stone-400"><i class="far fa-heart"></i></span>
+<span>Wishlist</span>
+</a>
+<a class="flex items-center px-4 py-3.5 text-stone-700 hover:bg-stone-50 hover:text-brand-darkGreen border-b border-stone-100 transition-colors" href="#">
+<span class="w-6 text-center mr-2.5 text-sm text-stone-400"><i class="fas fa-key"></i></span>
+<span>Change Password</span>
+</a>
+<a class="flex items-center px-4 py-3.5 text-stone-700 hover:bg-red-50 hover:text-red-700 transition-colors" href="#">
+<span class="w-6 text-center mr-2.5 text-sm text-stone-400"><i class="fas fa-sign-out-alt"></i></span>
+<span>Logout</span>
+</a>
+</nav>
+</aside>
+<!-- END: LeftSidebarMenu -->
+<!-- BEGIN: RightProfileContent -->
+<section class="md:col-span-3 space-y-6">
+<!-- Profile Card -->
+<div class="bg-white rounded-lg border border-brand-border p-6 md:p-8 shadow-sm">
+<!-- Header -->
+<div class="border-b border-stone-200 pb-4 mb-6 flex items-center justify-between">
+<div>
+<h1 class="font-serif-title text-2xl md:text-3xl font-bold text-stone-900 tracking-tight">My Profile</h1>
+<p class="text-xs text-stone-500 mt-1">Manage and update your personal information and preferences.</p>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mr-1.5"></span>
+                Active Member
+              </span>
+</div>
+<!-- Profile Details Form / Display Grid -->
+<div class="max-w-2xl space-y-4">
+<!-- Full Name Field -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 items-center py-2">
+<span class="text-xs sm:text-sm font-semibold text-stone-600">Full Name</span>
+<div class="sm:col-span-2">
+<div class="text-sm font-medium text-stone-900 bg-stone-50/80 px-3.5 py-2.5 rounded border border-stone-200">
+                    Riya Sharma
+                  </div>
+</div>
+</div>
+<!-- Email Address Field -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 items-center py-2">
+<span class="text-xs sm:text-sm font-semibold text-stone-600">Email Address</span>
+<div class="sm:col-span-2">
+<div class="text-sm font-medium text-stone-900 bg-stone-50/80 px-3.5 py-2.5 rounded border border-stone-200">
+                    riya.sharma@email.com
+                  </div>
+</div>
+</div>
+<!-- Phone Number Field -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 items-center py-2">
+<span class="text-xs sm:text-sm font-semibold text-stone-600">Phone Number</span>
+<div class="sm:col-span-2">
+<div class="text-sm font-medium text-stone-900 bg-stone-50/80 px-3.5 py-2.5 rounded border border-stone-200">
+                    +91 9876543210
+                  </div>
+</div>
+</div>
+<!-- Date Joined Field -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 items-center py-2">
+<span class="text-xs sm:text-sm font-semibold text-stone-600">Date Joined</span>
+<div class="sm:col-span-2">
+<div class="text-sm font-medium text-stone-700 bg-stone-50/80 px-3.5 py-2.5 rounded border border-stone-200">
+                    15 Mar 2024
+                  </div>
+</div>
+</div>
+<!-- Action Button Row -->
+<div class="pt-6 sm:grid sm:grid-cols-3 sm:gap-4">
+<div class="sm:col-start-2 sm:col-span-2">
+<button class="bg-brand-darkGreen hover:bg-brand-accentGreen text-white text-xs md:text-sm font-semibold tracking-wider uppercase px-8 py-3 rounded shadow transition-all duration-200 hover:shadow-md active:scale-95 flex items-center justify-center space-x-2" type="button">
+<i class="fas fa-edit text-xs"></i>
+<span>Edit Profile</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Profile Auxiliary Banner: Loyalty & Quick Stats -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="bg-white p-4 rounded-lg border border-brand-border flex items-center space-x-3.5">
+<div class="w-10 h-10 rounded-full bg-emerald-100 text-brand-darkGreen flex items-center justify-center flex-shrink-0">
+<i class="fas fa-box"></i>
+</div>
+<div>
+<p class="text-xs text-stone-500">Total Orders</p>
+<p class="text-base font-bold text-stone-900">4 Completed</p>
+</div>
+</div>
+<div class="bg-white p-4 rounded-lg border border-brand-border flex items-center space-x-3.5">
+<div class="w-10 h-10 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center flex-shrink-0">
+<i class="fas fa-coins"></i>
+</div>
+<div>
+<p class="text-xs text-stone-500">Spice Reward Points</p>
+<p class="text-base font-bold text-stone-900">250 Pts</p>
+</div>
+</div>
+<div class="bg-white p-4 rounded-lg border border-brand-border flex items-center space-x-3.5">
+<div class="w-10 h-10 rounded-full bg-stone-100 text-stone-700 flex items-center justify-center flex-shrink-0">
+<i class="fas fa-map-pin"></i>
+</div>
+<div>
+<p class="text-xs text-stone-500">Saved Addresses</p>
+<p class="text-base font-bold text-stone-900">2 Locations</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: RightProfileContent -->
+</div>
+</div>
+</main>
+<!-- END: CustomerPortalLayout -->
+<!-- BEGIN: SiteFooter -->
+<footer class="bg-stone-900 text-stone-300 pt-12 pb-6 border-t border-stone-800 mt-12" data-purpose="site-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 text-sm">
+<!-- Col 1: Brand Info -->
+<div>
+<h2 class="font-serif-title text-2xl font-bold text-white tracking-wide">AromaSpice</h2>
+<p class="text-xs text-brand-crimson font-medium tracking-wider uppercase mb-3">by Narus Foods</p>
+<p class="text-xs text-stone-400 leading-relaxed mb-4">
+            Bringing authentic Indian flavors directly to your kitchen. Hygienically processed, 100% natural, and packed with traditional purity.
+          </p>
+<div class="flex space-x-3 text-stone-400">
+<a class="w-8 h-8 rounded-full bg-stone-800 flex items-center justify-center hover:bg-brand-darkGreen hover:text-white transition-colors" href="#"><i class="fab fa-facebook-f text-xs"></i></a>
+<a class="w-8 h-8 rounded-full bg-stone-800 flex items-center justify-center hover:bg-brand-darkGreen hover:text-white transition-colors" href="#"><i class="fab fa-instagram text-xs"></i></a>
+<a class="w-8 h-8 rounded-full bg-stone-800 flex items-center justify-center hover:bg-brand-darkGreen hover:text-white transition-colors" href="#"><i class="fab fa-youtube text-xs"></i></a>
+</div>
+</div>
+<!-- Col 2: Quick Links -->
+<div>
+<h3 class="font-semibold text-white uppercase text-xs tracking-wider mb-4">Quick Navigation</h3>
+<ul class="space-y-2 text-xs">
+<li><a class="hover:text-white transition-colors" href="#">All Masala Powders</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Single Ground Spices</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Traditional Blended Masalas</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Exclusive Value Combos</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Special Seasonings</a></li>
+</ul>
+</div>
+<!-- Col 3: Customer Care -->
+<div>
+<h3 class="font-semibold text-white uppercase text-xs tracking-wider mb-4">Customer Care</h3>
+<ul class="space-y-2 text-xs">
+<li><a class="hover:text-white transition-colors" href="#">Track Your Order</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Shipping &amp; Delivery Policies</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Returns &amp; Replacement</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Terms &amp; Conditions</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<!-- Col 4: Reach Us -->
+<div>
+<h3 class="font-semibold text-white uppercase text-xs tracking-wider mb-4">Get in Touch</h3>
+<p class="text-xs text-stone-400 mb-2"><i class="fas fa-envelope mr-2 text-brand-sand"></i> Aromaspice@gmail.com</p>
+<p class="text-xs text-stone-400 mb-4"><i class="fas fa-phone mr-2 text-brand-sand"></i> +91 9042713404</p>
+<div class="border border-stone-800 p-3 rounded bg-stone-800/40">
+<span class="block text-[11px] font-medium text-stone-300">100% Secure Checkout</span>
+<span class="text-[10px] text-stone-500">UPI, Net Banking, Cards &amp; Cash on Delivery</span>
+</div>
+</div>
+</div>
+<!-- Footer Bottom Copyright -->
+<div class="border-t border-stone-800 pt-6 text-center text-xs text-stone-500 flex flex-col sm:flex-row justify-between items-center gap-2">
+<p>© 2024 AromaSpice by Narus Foods. All rights reserved.</p>
+<p class="text-[11px]">Crafted with love for Indian Culinary Traditions.</p>
+</div>
+</div>
+</footer>
+<!-- END: SiteFooter -->
+</body></html>

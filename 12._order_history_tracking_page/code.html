@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AromaSpice - Order History &amp; Tracking</title>
+<!-- Tailwind CSS CDN with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {"primary-fixed":"#b9f0be","primary-container":"#1b4d29","on-secondary-fixed":"#410006","on-surface-variant":"#414941","background":"#f6fbf5","tertiary-fixed-dim":"#ffb77d","outline-variant":"#c1c9be","tertiary":"#482400","tertiary-container":"#693600","on-tertiary-fixed-variant":"#6e3900","on-primary-fixed-variant":"#1e502c","surface-container-low":"#f0f5f0","on-tertiary":"#ffffff","secondary-container":"#fe807d","inverse-surface":"#2c322e","surface-dim":"#d7dbd6","surface":"#f6fbf5","on-primary":"#ffffff","on-error":"#ffffff","inverse-on-surface":"#edf2ed","primary-fixed-dim":"#9dd3a4","surface-variant":"#dfe4df","on-surface":"#181d1a","primary":"#003615","surface-tint":"#376942","error-container":"#ffdad6","on-secondary-container":"#74181d","surface-container-high":"#e5e9e4","on-background":"#181d1a","on-error-container":"#93000a","surface-bright":"#f6fbf5","secondary-fixed":"#ffdad8","on-secondary-fixed-variant":"#832327","surface-container-highest":"#dfe4df","surface-container":"#ebefea","tertiary-fixed":"#ffdcc3","secondary":"#a33b3c","on-primary-container":"#88bd8f","on-secondary":"#ffffff","error":"#ba1a1a","outline":"#717970","on-tertiary-fixed":"#2f1500","secondary-fixed-dim":"#ffb3b0","on-primary-fixed":"#00210a","surface-container-lowest":"#ffffff","on-tertiary-container":"#ff9733","inverse-primary":"#9dd3a4",
+            brand: {
+              primary: '#15522E', // deep green seen in primary CTAs and header accents
+              accent: '#8C1D18',  // spice red
+              gold: '#D97706',    // warm spice gold
+              cream: '#FDFBF7',   // warm cream base
+              surface: '#F8F4EC', // secondary surface
+              border: '#E8DFD1',  // subtle warm border
+              dark: '#1C1917',
+              muted: '#6B7280'
+            }
+          },
+          spacing: {"margin-desktop":"3rem",margin:"2rem","space-md":"1rem","space-xl":"2.5rem","margin-mobile":"1rem",gutter:"1.5rem","space-lg":"1.5rem","gutter-sm":"1rem","gutter-lg":"2rem","space-sm":"0.5rem","space-xs":"0.25rem"},
+          fontSize: {"title-md":["16px",{lineHeight:"22px",fontWeight:"600"}],"title-lg":["18px",{lineHeight:"24px",fontWeight:"700"}],"headline-lg-mobile":["26px",{lineHeight:"32px",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"26px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"22px",fontWeight:"400"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"700"}],"headline-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"headline-sm":["20px",{lineHeight:"28px",fontWeight:"600"}],"headline-xl-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.01em",fontWeight:"700"}],"headline-xl":["48px",{lineHeight:"56px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-md":["24px",{lineHeight:"32px",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}]},
+          fontFamily: {"title-md":["Plus Jakarta Sans"],"title-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Playfair Display"],"body-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg":["Playfair Display"],"label-md":["Plus Jakarta Sans"],"headline-sm":["Playfair Display"],"headline-xl-mobile":["Playfair Display"],"headline-xl":["Playfair Display"],"headline-md":["Playfair Display"],"label-lg":["Plus Jakarta Sans"],
+            serif: ['Georgia', 'Cambria', 'serif'],
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif']
+          }
+        }
+      }
+    };</script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="custom-scroll-and-table">
+    body {
+      background-color: #FAF7F2;
+      color: #2D2520;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #D8CEBD;
+      border-radius: 4px;
+    }
+  </style>
+<!-- END: Custom Styles -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col justify-between pt-36">
+<!-- BEGIN: MainHeader -->
+<header class="fixed top-0 left-0 w-full z-50 shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface"><div class="bg-surface-container-lowest py-space-md"><div class="max-w-7xl mx-auto px-gutter flex flex-wrap items-center justify-between gap-x-gutter-lg"><a class="flex flex-col flex-shrink-0 group" data-path="home" href="#"><span class="font-headline-md text-headline-md text-primary tracking-tight group-hover:text-primary-container transition-colors">AromaSpice</span><span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase -mt- space-xs">-- by Narus Foods --</span></a><div class="flex items-center gap-gutter-sm flex-shrink-0 max-sm:basis-full max-sm:justify-end"><a class="flex items-center gap-space-xs text-on-surface-variant hover:text-on-surface transition-colors py-space-xs px-space-sm" data-path="profile" href="#"><span class="material-symbols-outlined text-[22px]">person</span><div class="hidden lg:flex flex-col text-left"><span class="font-label-sm text-label-sm leading-none">Account</span><span class="font-label-md text-label-md font-bold leading-none mt-space-xs">Login</span></div></a><button class="flex items-center gap-space-xs text-on-surface-variant hover:text-on-surface transition-colors p-space-sm" type="button"><span class="material-symbols-outlined text-[22px]">location_on</span><span class="hidden xl:inline font-label-md text-body-md">Deliver: Set location</span></button><a class="relative p-space-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="wishlist" href="#"><span class="material-symbols-outlined text-[22px]">favorite</span><span class="absolute top-0 right-0 w-4 h-4 bg-secondary text-on-secondary rounded-[0.75rem] font-label-sm text-[10px] flex items-center justify-center leading-none">0</span></a><a class="relative flex items-center gap-space-xs bg-surface-container px-space-md py-space-sm rounded-[0.5rem] text-on-surface hover:bg-surface-container-high transition-colors" data-path="shopping-cart" href="#"><span class="material-symbols-outlined text-[22px] text-primary">shopping_bag</span><div class="hidden md:flex flex-col"><span class="font-label-sm text-[13px] text-outline leading-none">Cart</span><span class="font-label-md text-[14px] font-bold leading-none mt-space-xs">₹0.00</span></div><span class="w-5 h-5 bg-primary-container text-on-primary rounded-[0.75rem] font-label-sm text-[10px] flex items-center justify-center">0</span></a><img alt="Profile" class="w-9 h-9 rounded-[0.75rem] object-cover ring-2 ring-outline-variant" src="https://lh3.googleusercontent.com/aida/AEtjO1Un9x8CHR_-p-CIgmaBKkaPyMph2iSd5AhpOqf1jwrYYwPbD-hrhLoaGlek1w-YJmy676HGivMA7_GmqATGmcdbzOwrKGg2pIWcZryZDf1Zm1Z2F-8J05_TonA2NSO48NzGXl-96wrmb_cGYLQfjPmxOmuOws4Ak26XQM0oChFh-F47qFtYNh3G4aTnYqUFa4KHQ-n6rSbm6F3JSLWvPNS8_TIkaghURpjO8vb_WO3-puebtETUHyIY2tTUX-_lE2pObRu727WE-A"/></div></div></div><div class="bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="max-w-7xl mx-auto px-gutter"><nav class="flex flex-wrap items-center justify-start gap-space-xs md:gap-x-3 lg:gap-x-7 2xl:gap-x-9 font-label-lg text-[15px] leading-5 font-semibold" data-active-classes="text-primary font-bold bg-surface-container-low"><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="home" href="#">HOME</a><div class="relative group"><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem] flex items-center gap-space-xs" data-path="shop" href="#"><span>SHOP</span><span class="material-symbols-outlined text-[16px]">expand_more</span></a></div><div class="relative group"><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem] flex items-center gap-space-xs" data-path="combo-packs" href="#"><span>COMBO PACKS</span><span class="material-symbols-outlined text-[16px]">expand_more</span></a></div><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="about-us" href="#">ABOUT US</a><a aria-current="page" class="px-space-md py-2.5 transition-colors rounded-[0.25rem] text-primary font-bold bg-surface-container-low" data-path="track-order" href="#">TRACK ORDER</a><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="contact-us" href="#">CONTACT US</a></nav></div></div></header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+<!-- Page Breadcrumb / Heading -->
+<div class="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-[#E8DFD1] pb-4 gap-2">
+<div>
+<h1 class="text-2xl sm:text-3xl font-serif font-bold text-[#2D2520]">My Orders &amp; Tracking</h1>
+<p class="text-xs sm:text-sm text-gray-500 mt-1">Check current order shipment status, history, and track real-time dispatches.</p>
+</div>
+<div class="text-xs text-gray-500">
+<a class="hover:underline" href="#">Account</a> <span class="mx-1">/</span> <span class="text-[#15522E] font-medium">Order History</span>
+</div>
+</div>
+<!-- Main Dashboard Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<!-- BEGIN: CustomerSidebar -->
+<aside class="lg:col-span-1 space-y-4" data-purpose="user-dashboard-nav">
+<div class="bg-white rounded-lg border border-[#E8DFD1] overflow-hidden shadow-sm">
+<!-- Mini Profile Header -->
+<div class="p-5 border-b border-[#E8DFD1] bg-[#FAF8F3] flex items-center space-x-3">
+<div class="w-12 h-12 rounded-full bg-[#15522E] text-white flex items-center justify-center font-bold text-lg">
+              RS
+            </div>
+<div>
+<p class="text-sm font-bold text-gray-900">Riya Sharma</p>
+<p class="text-xs text-gray-500">riya.sharma@email.com</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="py-2 text-xs sm:text-sm font-medium">
+<a class="flex items-center px-4 py-2.5 text-gray-700 hover:bg-[#FAF8F3] hover:text-[#15522E] transition-colors" href="#">
+<svg class="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              My Profile
+            </a>
+<a class="flex items-center px-4 py-2.5 text-gray-700 hover:bg-[#FAF8F3] hover:text-[#15522E] transition-colors" href="#">
+<svg class="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Saved Addresses
+            </a>
+<a class="flex items-center px-4 py-2.5 bg-[#FAF4EC] text-[#15522E] font-semibold border-l-4 border-[#15522E]" href="#">
+<svg class="w-4 h-4 mr-3 text-[#15522E]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Order History
+            </a>
+<a class="flex items-center px-4 py-2.5 text-gray-700 hover:bg-[#FAF8F3] hover:text-[#15522E] transition-colors" href="#">
+<svg class="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Track Orders
+            </a>
+<a class="flex items-center px-4 py-2.5 text-gray-700 hover:bg-[#FAF8F3] hover:text-[#15522E] transition-colors" href="#">
+<svg class="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Wishlist
+            </a>
+<a class="flex items-center px-4 py-2.5 text-gray-700 hover:bg-[#FAF8F3] hover:text-[#15522E] transition-colors" href="#">
+<svg class="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Change Password
+            </a>
+<div class="border-t border-[#E8DFD1] my-2"></div>
+<a class="flex items-center px-4 py-2.5 text-red-600 hover:bg-red-50 transition-colors" href="#">
+<svg class="w-4 h-4 mr-3 text-red-500" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Logout
+            </a>
+</nav>
+</div>
+</aside>
+<!-- END: CustomerSidebar -->
+<!-- BEGIN: OrdersAndTrackingContent -->
+<section class="lg:col-span-3 space-y-8" data-purpose="orders-panel">
+<!-- Card: Order History Table -->
+<div class="bg-white rounded-lg border border-[#E8DFD1] shadow-sm overflow-hidden">
+<div class="px-6 py-4 border-b border-[#E8DFD1] flex justify-between items-center bg-[#FAF8F3]">
+<h2 class="text-base font-bold text-gray-800">My Orders</h2>
+<span class="text-xs text-gray-500">Showing last 4 orders</span>
+</div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse text-xs sm:text-sm">
+<thead>
+<tr class="bg-stone-50 border-b border-[#E8DFD1] text-gray-500 font-medium">
+<th class="py-3.5 px-4 sm:px-6" scope="col">Order ID</th>
+<th class="py-3.5 px-4" scope="col">Date</th>
+<th class="py-3.5 px-4" scope="col">Amount</th>
+<th class="py-3.5 px-4" scope="col">Status</th>
+<th class="py-3.5 px-4 sm:px-6 text-right" scope="col">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#E8DFD1]">
+<!-- Row 1: Delivered -->
+<tr class="hover:bg-[#FCFAF6] transition-colors">
+<td class="py-4 px-4 sm:px-6 font-semibold text-[#15522E]">
+                    #AS987654321
+                  </td>
+<td class="py-4 px-4 text-gray-600 whitespace-nowrap">
+                    20 May 2024
+                  </td>
+<td class="py-4 px-4 font-semibold text-gray-800 whitespace-nowrap">
+                    ₹463
+                  </td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                      Delivered
+                    </span>
+</td>
+<td class="py-4 px-4 sm:px-6 text-right whitespace-nowrap">
+<a class="text-[#15522E] hover:text-[#0E3B20] font-medium hover:underline text-xs" href="#">
+                      View Details
+                    </a>
+</td>
+</tr>
+<!-- Row 2: Shipped -->
+<tr class="hover:bg-[#FCFAF6] transition-colors">
+<td class="py-4 px-4 sm:px-6 font-semibold text-[#15522E]">
+                    #AS986543210
+                  </td>
+<td class="py-4 px-4 text-gray-600 whitespace-nowrap">
+                    10 May 2024
+                  </td>
+<td class="py-4 px-4 font-semibold text-gray-800 whitespace-nowrap">
+                    ₹349
+                  </td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-sky-100 text-sky-800">
+                      Shipped
+                    </span>
+</td>
+<td class="py-4 px-4 sm:px-6 text-right whitespace-nowrap">
+<a class="text-[#15522E] hover:text-[#0E3B20] font-medium hover:underline text-xs" href="#">
+                      View Details
+                    </a>
+</td>
+</tr>
+<!-- Row 3: Processing -->
+<tr class="hover:bg-[#FCFAF6] transition-colors">
+<td class="py-4 px-4 sm:px-6 font-semibold text-[#15522E]">
+                    #AS985432109
+                  </td>
+<td class="py-4 px-4 text-gray-600 whitespace-nowrap">
+                    03 May 2024
+                  </td>
+<td class="py-4 px-4 font-semibold text-gray-800 whitespace-nowrap">
+                    ₹599
+                  </td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
+                      Processing
+                    </span>
+</td>
+<td class="py-4 px-4 sm:px-6 text-right whitespace-nowrap">
+<a class="text-[#15522E] hover:text-[#0E3B20] font-medium hover:underline text-xs" href="#">
+                      View Details
+                    </a>
+</td>
+</tr>
+<!-- Row 4: Cancelled -->
+<tr class="hover:bg-[#FCFAF6] transition-colors">
+<td class="py-4 px-4 sm:px-6 font-semibold text-[#15522E]">
+                    #AS984321098
+                  </td>
+<td class="py-4 px-4 text-gray-600 whitespace-nowrap">
+                    25 Apr 2024
+                  </td>
+<td class="py-4 px-4 font-semibold text-gray-800 whitespace-nowrap">
+                    ₹249
+                  </td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-700">
+                      Cancelled
+                    </span>
+</td>
+<td class="py-4 px-4 sm:px-6 text-right whitespace-nowrap">
+<a class="text-[#15522E] hover:text-[#0E3B20] font-medium hover:underline text-xs" href="#">
+                      View Details
+                    </a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Card: Track Order Section -->
+<div class="bg-white rounded-lg border border-[#E8DFD1] shadow-sm p-6 sm:p-8" data-purpose="track-order-box">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6">
+<!-- Left: Search controls -->
+<div class="w-full md:w-3/5 space-y-4">
+<div>
+<h3 class="text-base sm:text-lg font-bold text-gray-900 font-serif">Track Order</h3>
+<p class="text-xs sm:text-sm text-gray-500 mt-0.5">Enter your Order Tracking ID below to see the instant live delivery status.</p>
+</div>
+<!-- Tracking Input Form -->
+<form class="flex flex-col sm:flex-row gap-2 max-w-lg" onsubmit="event.preventDefault();">
+<label class="sr-only" for="track-order-id">Enter Order ID</label>
+<div class="relative flex-grow">
+<input class="w-full border border-[#D8CEBD] rounded-md px-3.5 py-2.5 text-xs sm:text-sm focus:ring-1 focus:ring-[#15522E] focus:outline-none bg-stone-50" id="track-order-id" placeholder="Enter Order ID (e.g. #AS987654321)" type="text"/>
+</div>
+<button class="bg-[#15522E] hover:bg-[#0E3B20] text-white font-semibold text-xs tracking-wider uppercase px-6 py-2.5 rounded-md transition-colors whitespace-nowrap shadow-sm" type="submit">
+                  Track Order
+                </button>
+</form>
+<!-- Helpful Note -->
+<p class="text-[11px] text-gray-400">
+                You can find your Order ID in the order confirmation email or SMS received from Narus Foods.
+              </p>
+</div>
+<!-- Right: Delivery Truck Icon & Badge Representation -->
+<div class="w-full md:w-2/5 flex flex-col items-center justify-center border-t md:border-t-0 md:border-l border-[#E8DFD1] pt-6 md:pt-0 md:pl-8">
+<div class="w-20 h-20 rounded-full bg-[#FAF4EC] flex items-center justify-center text-[#15522E] mb-3 border border-[#E8DFD1]">
+<!-- Delivery Truck SVG Illustration -->
+<svg class="w-10 h-10" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+<path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+</svg>
+</div>
+<span class="text-xs font-semibold text-gray-700">Fast &amp; Safe Delivery Across India</span>
+<span class="text-[11px] text-gray-500">Tracked with direct courier partners</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: OrdersAndTrackingContent -->
+</div>
+<!-- BEGIN: ValuePropsBar -->
+<div class="mt-12 pt-8 border-t border-[#E8DFD1] grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+<div class="flex flex-col items-center">
+<span class="text-xl mb-1">🌿</span>
+<h4 class="text-xs font-bold text-gray-800 uppercase tracking-wide">100% Natural</h4>
+<p class="text-[11px] text-gray-500">No artificial preservatives</p>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-xl mb-1">⭐</span>
+<h4 class="text-xs font-bold text-gray-800 uppercase tracking-wide">Premium Quality</h4>
+<p class="text-[11px] text-gray-500">Carefully handpicked</p>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-xl mb-1">🛡️</span>
+<h4 class="text-xs font-bold text-gray-800 uppercase tracking-wide">Hygienically Packed</h4>
+<p class="text-[11px] text-gray-500">For lasting aroma &amp; freshness</p>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-xl mb-1">🚚</span>
+<h4 class="text-xs font-bold text-gray-800 uppercase tracking-wide">Secure Delivery</h4>
+<p class="text-[11px] text-gray-500">Real-time status updates</p>
+</div>
+</div>
+<!-- END: ValuePropsBar -->
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: MainFooter -->
+<footer class="bg-[#1A1615] text-[#D8CEBD] text-xs pt-12 pb-8 border-t-4 border-[#8C1D18]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+<!-- Brand Info -->
+<div class="space-y-3">
+<div class="text-2xl font-serif font-bold text-white tracking-wide">AromaSpice</div>
+<p class="text-[11px] leading-relaxed text-gray-400">
+            Bringing authentic Indian flavours right to your kitchen with traditional grinding recipes and naturally preserved freshness.
+          </p>
+<div class="text-[11px] text-gray-400">
+<p><strong>Narus Foods Pvt Ltd</strong></p>
+<p>Aromaspice@gmail.com</p>
+</div>
+</div>
+<!-- Quick Links -->
+<div class="space-y-2">
+<h4 class="text-white font-semibold uppercase tracking-wider text-xs mb-3">Quick Links</h4>
+<ul class="space-y-1.5 text-[11px] text-gray-400">
+<li><a class="hover:text-white transition-colors" href="#">All Masala Powders</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Special Blends</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Combo Savings Pack</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Wholesale / Bulk Inquiries</a></li>
+</ul>
+</div>
+<!-- Customer Care -->
+<div class="space-y-2">
+<h4 class="text-white font-semibold uppercase tracking-wider text-xs mb-3">Customer Support</h4>
+<ul class="space-y-1.5 text-[11px] text-gray-400">
+<li><a class="hover:text-white transition-colors" href="#">Track Your Order</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Shipping &amp; Delivery Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Refunds &amp; Returns</a></li>
+<li><a class="hover:text-white transition-colors" href="#">FAQs &amp; Helpdesk</a></li>
+</ul>
+</div>
+
+</div>
+<!-- Copyright Bar -->
+<div class="border-t border-stone-800 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-500">
+<p>© 2024 AromaSpice by Narus Foods. All rights reserved.</p>
+<div class="flex space-x-4 mt-2 sm:mt-0">
+<a class="hover:underline" href="#">Privacy Policy</a>
+<a class="hover:underline" href="#">Terms of Service</a>
+<a class="hover:underline" href="#">Security</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Your Account - AromaSpice by Narus Foods</title>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+tailwind.config = {
+  "theme": {
+    "extend": {
+      "colors": {
+        "primary-fixed": "#b9f0be",
+        "primary-container": "#1b4d29",
+        "on-secondary-fixed": "#410006",
+        "on-surface-variant": "#414941",
+        "background": "#f6fbf5",
+        "tertiary-fixed-dim": "#ffb77d",
+        "outline-variant": "#c1c9be",
+        "tertiary": "#482400",
+        "tertiary-container": "#693600",
+        "on-tertiary-fixed-variant": "#6e3900",
+        "on-primary-fixed-variant": "#1e502c",
+        "surface-container-low": "#f0f5f0",
+        "on-tertiary": "#ffffff",
+        "secondary-container": "#fe807d",
+        "inverse-surface": "#2c322e",
+        "surface-dim": "#d7dbd6",
+        "surface": "#f6fbf5",
+        "on-primary": "#ffffff",
+        "on-error": "#ffffff",
+        "inverse-on-surface": "#edf2ed",
+        "primary-fixed-dim": "#9dd3a4",
+        "surface-variant": "#dfe4df",
+        "on-surface": "#181d1a",
+        "primary": "#003615",
+        "surface-tint": "#376942",
+        "error-container": "#ffdad6",
+        "on-secondary-container": "#74181d",
+        "surface-container-high": "#e5e9e4",
+        "on-background": "#181d1a",
+        "on-error-container": "#93000a",
+        "surface-bright": "#f6fbf5",
+        "secondary-fixed": "#ffdad8",
+        "on-secondary-fixed-variant": "#832327",
+        "surface-container-highest": "#dfe4df",
+        "surface-container": "#ebefea",
+        "tertiary-fixed": "#ffdcc3",
+        "secondary": "#a33b3c",
+        "on-primary-container": "#88bd8f",
+        "on-secondary": "#ffffff",
+        "error": "#ba1a1a",
+        "outline": "#717970",
+        "on-tertiary-fixed": "#2f1500",
+        "secondary-fixed-dim": "#ffb3b0",
+        "on-primary-fixed": "#00210a",
+        "surface-container-lowest": "#ffffff",
+        "on-tertiary-container": "#ff9733",
+        "inverse-primary": "#9dd3a4",
+        "brand": {
+          "green": "#1b4d29",
+          "green-dark": "#133a1e",
+          "green-light": "#246636",
+          "maroon": "#7a151b",
+          "maroon-dark": "#5c0f14",
+          "gold": "#c49a45",
+          "cream": "#fbf8f3",
+          "surface": "#f6fbf5",
+          "border": "#e2ddd5"
+        }
+      },
+      "fontFamily": {
+        "title-md": [
+          "Plus Jakarta Sans"
+        ],
+        "title-lg": [
+          "Plus Jakarta Sans"
+        ],
+        "headline-lg-mobile": [
+          "Playfair Display"
+        ],
+        "body-sm": [
+          "Plus Jakarta Sans"
+        ],
+        "body-lg": [
+          "Plus Jakarta Sans"
+        ],
+        "body-md": [
+          "Plus Jakarta Sans"
+        ],
+        "label-sm": [
+          "Plus Jakarta Sans"
+        ],
+        "headline-lg": [
+          "Playfair Display"
+        ],
+        "label-md": [
+          "Plus Jakarta Sans"
+        ],
+        "headline-sm": [
+          "Playfair Display"
+        ],
+        "headline-xl-mobile": [
+          "Playfair Display"
+        ],
+        "headline-xl": [
+          "Playfair Display"
+        ],
+        "headline-md": [
+          "Playfair Display"
+        ],
+        "label-lg": [
+          "Plus Jakarta Sans"
+        ],
+        "serif": [
+          "\"Playfair Display\"",
+          "Georgia",
+          "serif"
+        ],
+        "sans": [
+          "\"Plus Jakarta Sans\"",
+          "sans-serif"
+        ]
+      },
+      "spacing": {
+        "margin-desktop": "3rem",
+        "margin": "2rem",
+        "space-md": "1rem",
+        "space-xl": "2.5rem",
+        "margin-mobile": "1rem",
+        "gutter": "1.5rem",
+        "space-lg": "1.5rem",
+        "gutter-sm": "1rem",
+        "gutter-lg": "2rem",
+        "space-sm": "0.5rem",
+        "space-xs": "0.25rem"
+      },
+      "fontSize": {
+        "title-md": [
+          "16px",
+          {
+            "lineHeight": "22px",
+            "fontWeight": "600"
+          }
+        ],
+        "title-lg": [
+          "18px",
+          {
+            "lineHeight": "24px",
+            "fontWeight": "700"
+          }
+        ],
+        "headline-lg-mobile": [
+          "26px",
+          {
+            "lineHeight": "32px",
+            "fontWeight": "600"
+          }
+        ],
+        "body-sm": [
+          "12px",
+          {
+            "lineHeight": "18px",
+            "fontWeight": "400"
+          }
+        ],
+        "body-lg": [
+          "16px",
+          {
+            "lineHeight": "26px",
+            "fontWeight": "400"
+          }
+        ],
+        "body-md": [
+          "14px",
+          {
+            "lineHeight": "22px",
+            "fontWeight": "400"
+          }
+        ],
+        "label-sm": [
+          "11px",
+          {
+            "lineHeight": "14px",
+            "letterSpacing": "0.04em",
+            "fontWeight": "700"
+          }
+        ],
+        "headline-lg": [
+          "36px",
+          {
+            "lineHeight": "44px",
+            "letterSpacing": "-0.01em",
+            "fontWeight": "600"
+          }
+        ],
+        "label-md": [
+          "12px",
+          {
+            "lineHeight": "16px",
+            "letterSpacing": "0.02em",
+            "fontWeight": "600"
+          }
+        ],
+        "headline-sm": [
+          "20px",
+          {
+            "lineHeight": "28px",
+            "fontWeight": "600"
+          }
+        ],
+        "headline-xl-mobile": [
+          "32px",
+          {
+            "lineHeight": "40px",
+            "letterSpacing": "-0.01em",
+            "fontWeight": "700"
+          }
+        ],
+        "headline-xl": [
+          "48px",
+          {
+            "lineHeight": "56px",
+            "letterSpacing": "-0.02em",
+            "fontWeight": "700"
+          }
+        ],
+        "headline-md": [
+          "24px",
+          {
+            "lineHeight": "32px",
+            "fontWeight": "600"
+          }
+        ],
+        "label-lg": [
+          "14px",
+          {
+            "lineHeight": "20px",
+            "letterSpacing": "0.01em",
+            "fontWeight": "600"
+          }
+        ]
+      }
+    }
+  },
+  "darkMode": "class"
+}
+</script>
+<!-- Custom Styles: Focus, Typography and Form Layout -->
+<style data-purpose="custom-styling">
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #fbf8f3;
+      color: #2b2b2b;
+    }
+    .font-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(27, 77, 41, 0.2);
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+</head>
+<body class="pt-36 min-h-screen flex flex-col bg-[#fbf8f3] text-gray-800">
+
+<!-- BEGIN: MainHeader -->
+<header class="fixed top-0 left-0 w-full z-50 shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface"><div class="bg-surface-container-lowest py-space-md"><div class="max-w-7xl mx-auto px-gutter flex flex-wrap items-center justify-between gap-x-gutter-lg"><a class="flex flex-col flex-shrink-0 group" data-path="home" href="#"><span class="font-headline-md text-headline-md text-primary tracking-tight group-hover:text-primary-container transition-colors">AromaSpice</span><span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase -mt- space-xs">-- by Narus Foods --</span></a><div class="flex items-center gap-gutter-sm flex-shrink-0 max-sm:basis-full max-sm:justify-end"><a class="flex items-center gap-space-xs text-on-surface-variant hover:text-on-surface transition-colors py-space-xs px-space-sm" data-path="profile" href="#"><span class="material-symbols-outlined text-[22px]">person</span><div class="hidden lg:flex flex-col text-left"><span class="font-label-sm text-label-sm leading-none">Account</span><span class="font-label-md text-label-md font-bold leading-none mt-space-xs">Login</span></div></a><button class="flex items-center gap-space-xs text-on-surface-variant hover:text-on-surface transition-colors p-space-sm" type="button"><span class="material-symbols-outlined text-[22px]">location_on</span><span class="hidden xl:inline font-label-md text-body-md">Deliver: Set location</span></button><a class="relative p-space-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="wishlist" href="#"><span class="material-symbols-outlined text-[22px]">favorite</span><span class="absolute top-0 right-0 w-4 h-4 bg-secondary text-on-secondary rounded-[0.75rem] font-label-sm text-[10px] flex items-center justify-center leading-none">0</span></a><img alt="Profile" class="w-9 h-9 rounded-[0.75rem] object-cover ring-2 ring-outline-variant" src="https://lh3.googleusercontent.com/aida/AEtjO1Un9x8CHR_-p-CIgmaBKkaPyMph2iSd5AhpOqf1jwrYYwPbD-hrhLoaGlek1w-YJmy676HGivMA7_GmqATGmcdbzOwrKGg2pIWcZryZDf1Zm1Z2F-8J05_TonA2NSO48NzGXl-96wrmb_cGYLQfjPmxOmuOws4Ak26XQM0oChFh-F47qFtYNh3G4aTnYqUFa4KHQ-n6rSbm6F3JSLWvPNS8_TIkaghURpjO8vb_WO3-puebtETUHyIY2tTUX-_lE2pObRu727WE-A"/></div></div></div><div class="bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="max-w-7xl mx-auto px-gutter"><nav class="flex flex-wrap items-center justify-start gap-space-xs md:gap-x-3 lg:gap-x-7 2xl:gap-x-9 font-label-lg text-[15px] leading-5 font-semibold" data-active-classes="text-primary font-bold bg-surface-container-low"><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="home" href="#">HOME</a><div class="relative group"><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem] flex items-center gap-space-xs" data-path="shop" href="#"><span>SHOP</span><span class="material-symbols-outlined text-[16px]">expand_more</span></a></div><div class="relative group"><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem] flex items-center gap-space-xs" data-path="combo-packs" href="#"><span>COMBO PACKS</span><span class="material-symbols-outlined text-[16px]">expand_more</span></a></div><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="about-us" href="#">ABOUT US</a><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="track-order" href="#">TRACK ORDER</a><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="contact-us" href="#">CONTACT US</a></nav></div></div></header>
+<!-- END: MainHeader -->
+<!-- BEGIN: Breadcrumbs -->
+<nav aria-label="Breadcrumb" class="bg-[#f2ece2] py-2 px-4 border-b border-[#e5dcce]" data-purpose="breadcrumbs">
+<div class="max-w-7xl mx-auto flex items-center space-x-2 text-xs text-gray-600">
+<a class="hover:text-[#1b4d29] transition-colors" href="#">Home</a>
+<span>/</span>
+<a class="hover:text-[#1b4d29] transition-colors" href="#">Account</a>
+<span>/</span>
+<span class="text-[#1b4d29] font-semibold">Register</span>
+</div>
+</nav>
+<!-- END: Breadcrumbs -->
+<!-- BEGIN: MainContent -->
+<main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 relative overflow-hidden">
+<!-- Subtle Background Spices Accents (As represented in reference layout) -->
+<div class="absolute -bottom-16 -right-16 w-80 h-80 opacity-20 pointer-events-none rounded-full bg-gradient-to-tl from-[#c49a45] to-transparent blur-2xl"></div>
+<div class="absolute top-1/4 -left-12 w-64 h-64 opacity-20 pointer-events-none rounded-full bg-gradient-to-br from-[#7a151b] to-transparent blur-3xl"></div>
+<div class="w-full max-w-lg z-10">
+<!-- Register Card -->
+<section class="bg-white rounded-lg shadow-xl border border-[#e2ddd5] p-8 md:p-10 relative" data-purpose="register-form-card">
+<!-- Header Text -->
+<header class="text-center mb-8">
+<h1 class="font-serif text-3xl md:text-4xl font-bold text-[#1b4d29] mb-2 tracking-tight">
+            Create Your Account
+          </h1>
+<p class="text-sm font-medium text-gray-600">
+            Join AromaSpice Family
+          </p>
+<div class="w-12 h-0.5 bg-[#c49a45] mx-auto mt-3"></div>
+</header>
+<!-- Form Elements -->
+<form action="#" class="space-y-4" method="POST">
+<!-- Full Name -->
+<div>
+<label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5" for="fullName">
+              Full Name
+            </label>
+<div class="relative">
+<input class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded focus:border-[#1b4d29] focus:ring-0 text-gray-900 placeholder-gray-400 transition" id="fullName" name="fullName" placeholder="Enter your full name" required="" type="text"/>
+<span class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-400 text-sm">
+<i class="fa-regular fa-user"></i>
+</span>
+</div>
+</div>
+<!-- Email Address -->
+<div>
+<label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5" for="email">
+              Email Address
+            </label>
+<div class="relative">
+<input class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded focus:border-[#1b4d29] focus:ring-0 text-gray-900 placeholder-gray-400 transition" id="email" name="email" placeholder="Enter your email address" required="" type="email"/>
+<span class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-400 text-sm">
+<i class="fa-regular fa-envelope"></i>
+</span>
+</div>
+</div>
+<!-- Phone Number -->
+<div>
+<label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5" for="phone">
+              Phone Number
+            </label>
+<div class="relative">
+<input class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded focus:border-[#1b4d29] focus:ring-0 text-gray-900 placeholder-gray-400 transition" id="phone" name="phone" placeholder="Enter your phone number" required="" type="tel"/>
+<span class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-400 text-sm">
+<i class="fa-solid fa-phone text-xs"></i>
+</span>
+</div>
+</div>
+<!-- Password -->
+<div>
+<label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5" for="password">
+              Password
+            </label>
+<div class="relative">
+<input class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded focus:border-[#1b4d29] focus:ring-0 text-gray-900 placeholder-gray-400 transition pr-10" id="password" name="password" placeholder="Create a password" required="" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600 focus:outline-none" onclick="togglePasswordVisibility('password', this)" type="button">
+<i class="fa-regular fa-eye text-sm"></i>
+</button>
+</div>
+</div>
+<!-- Confirm Password -->
+<div>
+<label class="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5" for="confirmPassword">
+              Confirm Password
+            </label>
+<div class="relative">
+<input class="w-full px-4 py-2.5 text-sm bg-white border border-gray-300 rounded focus:border-[#1b4d29] focus:ring-0 text-gray-900 placeholder-gray-400 transition pr-10" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required="" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600 focus:outline-none" onclick="togglePasswordVisibility('confirmPassword', this)" type="button">
+<i class="fa-regular fa-eye text-sm"></i>
+</button>
+</div>
+</div>
+<!-- Terms Checkbox -->
+<div class="flex items-start pt-2">
+<div class="flex items-center h-5">
+<input class="w-4 h-4 text-[#1b4d29] border-gray-300 rounded focus:ring-[#1b4d29]" id="terms" name="terms" required="" type="checkbox"/>
+</div>
+<div class="ml-2.5 text-xs text-gray-600">
+<label for="terms">
+                I agree to the <a class="text-[#1b4d29] hover:underline font-medium" href="#">Terms &amp; Conditions</a> and <a class="text-[#1b4d29] hover:underline font-medium" href="#">Privacy Policy</a>
+</label>
+</div>
+</div>
+<!-- Register Action Button -->
+<div class="pt-3">
+<button class="w-full py-3 px-4 bg-[#1b4d29] hover:bg-[#133a1e] active:scale-[0.99] text-white text-sm font-bold uppercase tracking-wider rounded transition duration-150 shadow-md hover:shadow-lg flex items-center justify-center space-x-2" type="submit">
+<span>REGISTER</span>
+</button>
+</div>
+</form>
+<!-- Login Redirect Link -->
+<footer class="mt-6 pt-5 border-t border-gray-100 text-center text-xs text-gray-600">
+          Already have an account? 
+          <a class="text-[#7a151b] font-semibold hover:underline ml-1" href="#">
+            Login
+          </a>
+</footer>
+</section>
+<!-- Trust Badges Under Form -->
+<div class="mt-6 grid grid-cols-3 gap-2 text-center text-gray-500 text-xs">
+<div class="flex flex-col items-center">
+<i class="fa-solid fa-shield-halved text-[#1b4d29] text-base mb-1"></i>
+<span class="font-medium text-[11px]">100% Secure</span>
+</div>
+<div class="flex flex-col items-center">
+<i class="fa-solid fa-certificate text-[#1b4d29] text-base mb-1"></i>
+<span class="font-medium text-[11px]">Narus Certified</span>
+</div>
+<div class="flex flex-col items-center">
+<i class="fa-solid fa-truck-fast text-[#1b4d29] text-base mb-1"></i>
+<span class="font-medium text-[11px]">Prompt Delivery</span>
+</div>
+</div>
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: MainFooter -->
+<footer class="bg-[#1b4d29] text-[#f6fbf5] pt-12 pb-6 border-t-4 border-[#c49a45] mt-auto" data-purpose="site-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10 border-b border-emerald-900/60">
+<!-- Brand Info -->
+<div class="space-y-3">
+<span class="font-serif text-2xl font-bold tracking-tight text-white block">
+            AromaSpice
+          </span>
+<p class="text-xs text-emerald-200/90 leading-relaxed">
+            Bringing authentic Indian flavours right to your kitchen. 100% natural spices, hygienically processed and packaged for purity and rich aroma.
+          </p>
+<div class="flex items-center space-x-3 text-emerald-100 pt-2">
+<a class="w-8 h-8 rounded-full bg-emerald-900/50 flex items-center justify-center hover:bg-[#c49a45] hover:text-white transition" href="#"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+<a class="w-8 h-8 rounded-full bg-emerald-900/50 flex items-center justify-center hover:bg-[#c49a45] hover:text-white transition" href="#"><i class="fa-brands fa-instagram text-xs"></i></a>
+<a class="w-8 h-8 rounded-full bg-emerald-900/50 flex items-center justify-center hover:bg-[#c49a45] hover:text-white transition" href="#"><i class="fa-brands fa-twitter text-xs"></i></a>
+<a class="w-8 h-8 rounded-full bg-emerald-900/50 flex items-center justify-center hover:bg-[#c49a45] hover:text-white transition" href="#"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+</div>
+</div>
+<!-- Quick Links -->
+<div>
+<h4 class="font-serif text-sm font-bold uppercase tracking-wider text-amber-200 mb-4">
+            Quick Links
+          </h4>
+<ul class="space-y-2 text-xs text-emerald-100">
+<li><a class="hover:text-amber-200 transition" href="#">All Products</a></li>
+<li><a class="hover:text-amber-200 transition" href="#">Single Masalas</a></li>
+<li><a class="hover:text-amber-200 transition" href="#">Blended Masalas</a></li>
+<li><a class="hover:text-amber-200 transition" href="#">Special Combos</a></li>
+<li><a class="hover:text-amber-200 transition" href="#">Pepper &amp; Powders</a></li>
+</ul>
+</div>
+<!-- Customer Support -->
+<div>
+<h4 class="font-serif text-sm font-bold uppercase tracking-wider text-amber-200 mb-4">
+            Customer Care
+          </h4>
+<ul class="space-y-2 text-xs text-emerald-100">
+<li><a class="hover:text-amber-200 transition" href="#">Track Your Order</a></li>
+<li><a class="hover:text-amber-200 transition" href="#">Shipping &amp; Delivery</a></li>
+<li><a class="hover:text-amber-200 transition" href="#">Return &amp; Refund Policy</a></li>
+<li><a class="hover:text-amber-200 transition" href="#">Terms &amp; Conditions</a></li>
+<li><a class="hover:text-amber-200 transition" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+
+</div>
+<!-- Copyright Subfooter -->
+<div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-emerald-300/80 gap-3">
+<p>© 2024 AromaSpice by Narus Foods. All Rights Reserved.</p>
+<p class="flex items-center gap-1.5">
+<span>Pure Spices. Pure Love.</span>
+<span>•</span>
+<span>FSSAI Certified Quality</span>
+</p>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+<!-- BEGIN: Interactive Password Visibility Script -->
+<script data-purpose="event-handlers">
+    function togglePasswordVisibility(fieldId, buttonElement) {
+      const input = document.getElementById(fieldId);
+      const icon = buttonElement.querySelector('i');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    }
+  </script>
+<!-- END: Interactive Password Visibility Script -->
+</body></html>

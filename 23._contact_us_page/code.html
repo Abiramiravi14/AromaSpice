@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact Us - AromaSpice by Narus Foods</title>
+<!-- Tailwind CSS v3 with forms and container-queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {"primary-fixed":"#b9f0be","primary-container":"#1b4d29","on-secondary-fixed":"#410006","on-surface-variant":"#414941","background":"#f6fbf5","tertiary-fixed-dim":"#ffb77d","outline-variant":"#c1c9be","tertiary":"#482400","tertiary-container":"#693600","on-tertiary-fixed-variant":"#6e3900","on-primary-fixed-variant":"#1e502c","surface-container-low":"#f0f5f0","on-tertiary":"#ffffff","secondary-container":"#fe807d","inverse-surface":"#2c322e","surface-dim":"#d7dbd6","surface":"#f6fbf5","on-primary":"#ffffff","on-error":"#ffffff","inverse-on-surface":"#edf2ed","primary-fixed-dim":"#9dd3a4","surface-variant":"#dfe4df","on-surface":"#181d1a","primary":"#003615","surface-tint":"#376942","error-container":"#ffdad6","on-secondary-container":"#74181d","surface-container-high":"#e5e9e4","on-background":"#181d1a","on-error-container":"#93000a","surface-bright":"#f6fbf5","secondary-fixed":"#ffdad8","on-secondary-fixed-variant":"#832327","surface-container-highest":"#dfe4df","surface-container":"#ebefea","tertiary-fixed":"#ffdcc3","secondary":"#a33b3c","on-primary-container":"#88bd8f","on-secondary":"#ffffff","error":"#ba1a1a","outline":"#717970","on-tertiary-fixed":"#2f1500","secondary-fixed-dim":"#ffb3b0","on-primary-fixed":"#00210a","surface-container-lowest":"#ffffff","on-tertiary-container":"#ff9733","inverse-primary":"#9dd3a4",
+            brand: {
+              primary: '#1c4228', // Deep spice green from brand
+              accent: '#8f1c1c',  // Deep spice red
+              gold: '#c98a2c',
+              cream: '#faf6f0',
+              bgLight: '#fbf8f3',
+              dark: '#2c2523'
+            }
+          },
+          spacing: {"margin-desktop":"3rem",margin:"2rem","space-md":"1rem","space-xl":"2.5rem","margin-mobile":"1rem",gutter:"1.5rem","space-lg":"1.5rem","gutter-sm":"1rem","gutter-lg":"2rem","space-sm":"0.5rem","space-xs":"0.25rem"},
+          fontSize: {"title-md":["16px",{lineHeight:"22px",fontWeight:"600"}],"title-lg":["18px",{lineHeight:"24px",fontWeight:"700"}],"headline-lg-mobile":["26px",{lineHeight:"32px",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"body-lg":["16px",{lineHeight:"26px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"22px",fontWeight:"400"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"700"}],"headline-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"headline-sm":["20px",{lineHeight:"28px",fontWeight:"600"}],"headline-xl-mobile":["32px",{lineHeight:"40px",letterSpacing:"-0.01em",fontWeight:"700"}],"headline-xl":["48px",{lineHeight:"56px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-md":["24px",{lineHeight:"32px",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}]},
+          fontFamily: {"title-md":["Plus Jakarta Sans"],"title-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Playfair Display"],"body-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"headline-lg":["Playfair Display"],"label-md":["Plus Jakarta Sans"],"headline-sm":["Playfair Display"],"headline-xl-mobile":["Playfair Display"],"headline-xl":["Playfair Display"],"headline-md":["Playfair Display"],"label-lg":["Plus Jakarta Sans"],
+            serif: ['Georgia', 'Cambria', 'serif'],
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif']
+          }
+        }
+      }
+    };</script>
+<!-- Phosphor Icons for brand and trust badges -->
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<!-- Custom styles for fine aesthetic tuning -->
+<style data-purpose="custom-typography">
+    .font-brand-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    .hero-border-accent {
+      border-color: #e5ded5;
+    }
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-[#fbf8f3] text-gray-800 font-sans antialiased min-h-screen flex flex-col justify-between pt-36">
+<!-- BEGIN: MainHeader -->
+<header class="fixed top-0 left-0 w-full z-50 shadow-[0_1px_8px_rgba(0,0,0,0.04)] text-on-surface"><div class="bg-surface-container-lowest py-space-md"><div class="max-w-7xl mx-auto px-gutter flex flex-wrap items-center justify-between gap-x-gutter-lg"><a class="flex flex-col flex-shrink-0 group" data-path="home" href="#"><span class="font-headline-md text-headline-md text-primary tracking-tight group-hover:text-primary-container transition-colors">AromaSpice</span><span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase -mt- space-xs">-- by Narus Foods --</span></a><div class="flex items-center gap-gutter-sm flex-shrink-0 max-sm:basis-full max-sm:justify-end"><a class="flex items-center gap-space-xs text-on-surface-variant hover:text-on-surface transition-colors py-space-xs px-space-sm" data-path="profile" href="#"><span class="material-symbols-outlined text-[22px]">person</span><div class="hidden lg:flex flex-col text-left"><span class="font-label-sm text-label-sm leading-none">Account</span><span class="font-label-md text-label-md font-bold leading-none mt-space-xs">Login</span></div></a><button class="flex items-center gap-space-xs text-on-surface-variant hover:text-on-surface transition-colors p-space-sm" type="button"><span class="material-symbols-outlined text-[22px]">location_on</span><span class="hidden xl:inline font-label-md text-body-md">Deliver: Set location</span></button><a class="relative p-space-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="wishlist" href="#"><span class="material-symbols-outlined text-[22px]">favorite</span><span class="absolute top-0 right-0 w-4 h-4 bg-secondary text-on-secondary rounded-[0.75rem] font-label-sm text-[10px] flex items-center justify-center leading-none">0</span></a><a class="relative flex items-center gap-space-xs bg-surface-container px-space-md py-space-sm rounded-[0.5rem] text-on-surface hover:bg-surface-container-high transition-colors" data-path="shopping-cart" href="#"><span class="material-symbols-outlined text-[22px] text-primary">shopping_bag</span><div class="hidden md:flex flex-col"><span class="font-label-sm text-[13px] text-outline leading-none">Cart</span><span class="font-label-md text-[14px] font-bold leading-none mt-space-xs">₹0.00</span></div><span class="w-5 h-5 bg-primary-container text-on-primary rounded-[0.75rem] font-label-sm text-[10px] flex items-center justify-center">0</span></a><img alt="Profile" class="w-9 h-9 rounded-[0.75rem] object-cover ring-2 ring-outline-variant" src="https://lh3.googleusercontent.com/aida/AEtjO1Un9x8CHR_-p-CIgmaBKkaPyMph2iSd5AhpOqf1jwrYYwPbD-hrhLoaGlek1w-YJmy676HGivMA7_GmqATGmcdbzOwrKGg2pIWcZryZDf1Zm1Z2F-8J05_TonA2NSO48NzGXl-96wrmb_cGYLQfjPmxOmuOws4Ak26XQM0oChFh-F47qFtYNh3G4aTnYqUFa4KHQ-n6rSbm6F3JSLWvPNS8_TIkaghURpjO8vb_WO3-puebtETUHyIY2tTUX-_lE2pObRu727WE-A"/></div></div></div><div class="bg-surface-container-lowest shadow-[0_1px_4px_rgba(0,0,0,0.03)]"><div class="max-w-7xl mx-auto px-gutter"><nav class="flex flex-wrap items-center justify-start gap-space-xs md:gap-x-3 lg:gap-x-7 2xl:gap-x-9 font-label-lg text-[15px] leading-5 font-semibold" data-active-classes="text-primary font-bold bg-surface-container-low"><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="home" href="#">HOME</a><div class="relative group"><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem] flex items-center gap-space-xs" data-path="shop" href="#"><span>SHOP</span><span class="material-symbols-outlined text-[16px]">expand_more</span></a></div><div class="relative group"><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem] flex items-center gap-space-xs" data-path="combo-packs" href="#"><span>COMBO PACKS</span><span class="material-symbols-outlined text-[16px]">expand_more</span></a></div><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="about-us" href="#">ABOUT US</a><a class="px-space-md py-2.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-[0.25rem]" data-path="track-order" href="#">TRACK ORDER</a><a aria-current="page" class="px-space-md py-2.5 transition-colors rounded-[0.25rem] text-primary font-bold bg-surface-container-low" data-path="contact-us" href="#">CONTACT US</a></nav></div></div></header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainContent -->
+<main class="flex-grow flex items-center py-10 lg:py-16" data-purpose="contact-us-container">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+<!-- Content Grid: Left Contact Info, Right Message Form -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+
+<!-- Left Column: Heading + Contact Cards -->
+<section class="lg:col-span-5" data-purpose="contact-info">
+<div class="mb-6 text-center lg:text-left">
+<h1 class="text-3xl sm:text-4xl md:text-5xl font-serif text-[#1e231e] tracking-tight font-normal">
+              Contact Us
+            </h1>
+<p class="text-sm sm:text-base text-[#8e5229] font-serif italic mt-1.5 tracking-wide">
+              — by Narus Foods —
+            </p>
+</div>
+<p class="text-gray-700 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Questions about an order, our masala powders, or wholesale enquiries? Reach us any way you like &mdash; we usually reply within <strong class="text-gray-900 font-semibold">24 hours</strong>.
+            </p>
+<div class="w-16 h-[1.5px] bg-[#c98a2c]/60 my-7 mx-auto lg:mx-0"></div>
+
+<!-- Contact Cards -->
+<div class="space-y-4" data-purpose="contact-cards">
+<!-- Email -->
+<a href="mailto:Aromaspice@gmail.com" class="flex items-start gap-4 p-4 rounded-xl bg-white/70 hover:bg-white border border-[#e6d7c7] transition group" data-purpose="contact-email">
+<div class="w-11 h-11 flex-shrink-0 rounded-full bg-[#f4ebe1] flex items-center justify-center text-[#1c4228] border border-[#e6d7c7]">
+<span class="material-symbols-outlined text-xl">mail</span>
+</div>
+<div class="min-w-0">
+<h3 class="text-xs font-bold text-gray-900 leading-tight">Email</h3>
+<p class="text-sm text-[#8e5229] font-medium group-hover:underline break-all">Aromaspice@gmail.com</p>
+<p class="text-[11px] text-gray-500 mt-0.5">Orders, products &amp; partnerships</p>
+</div>
+</a>
+<!-- Phone -->
+<a href="tel:+919042713404" class="flex items-start gap-4 p-4 rounded-xl bg-white/70 hover:bg-white border border-[#e6d7c7] transition group" data-purpose="contact-phone">
+<div class="w-11 h-11 flex-shrink-0 rounded-full bg-[#f4ebe1] flex items-center justify-center text-[#1c4228] border border-[#e6d7c7]">
+<span class="material-symbols-outlined text-xl">call</span>
+</div>
+<div class="min-w-0">
+<h3 class="text-xs font-bold text-gray-900 leading-tight">Phone</h3>
+<p class="text-sm text-[#8e5229] font-medium group-hover:underline">+91 9042713404</p>
+<p class="text-[11px] text-gray-500 mt-0.5">Call or WhatsApp for support</p>
+</div>
+</a>
+<!-- Response promise -->
+<div class="flex items-start gap-4 p-4 rounded-xl bg-white/70 border border-[#e6d7c7]" data-purpose="contact-promise">
+<div class="w-11 h-11 flex-shrink-0 rounded-full bg-[#f4ebe1] flex items-center justify-center text-[#1c4228] border border-[#e6d7c7]">
+<span class="material-symbols-outlined text-xl">schedule</span>
+</div>
+<div>
+<h3 class="text-xs font-bold text-gray-900 leading-tight">Response Time</h3>
+<p class="text-sm text-gray-700 font-medium">Within 24 hours, Mon&ndash;Sat</p>
+<p class="text-[11px] text-gray-500 mt-0.5">Grievances resolved within 7 days</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Right Column: Message Form -->
+<section class="lg:col-span-7" data-purpose="contact-form-section">
+<div class="rounded-2xl bg-white border border-[#e6d7c7] shadow-xl p-6 sm:p-8">
+<h2 class="text-xl sm:text-2xl font-serif text-[#1e231e] mb-1">Send us a message</h2>
+<p class="text-[13px] text-gray-500 mb-6">Fill the form and our team will get back to you.</p>
+
+<form id="contact-form" data-purpose="contact-form" novalidate>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label for="cf-name" class="block text-xs font-bold text-gray-900 mb-1.5">Name *</label>
+<input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Your full name"
+ class="w-full rounded-lg border border-gray-300 px-3.5 py-2.5 text-sm focus:border-[#1c4228] focus:ring-2 focus:ring-[#1c4228]/20 outline-none transition"/>
+</div>
+<div>
+<label for="cf-email" class="block text-xs font-bold text-gray-900 mb-1.5">Email *</label>
+<input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com"
+ class="w-full rounded-lg border border-gray-300 px-3.5 py-2.5 text-sm focus:border-[#1c4228] focus:ring-2 focus:ring-[#1c4228]/20 outline-none transition"/>
+</div>
+<div>
+<label for="cf-phone" class="block text-xs font-bold text-gray-900 mb-1.5">Phone</label>
+<input id="cf-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 ..."
+ class="w-full rounded-lg border border-gray-300 px-3.5 py-2.5 text-sm focus:border-[#1c4228] focus:ring-2 focus:ring-[#1c4228]/20 outline-none transition"/>
+</div>
+<div>
+<label for="cf-topic" class="block text-xs font-bold text-gray-900 mb-1.5">Topic</label>
+<select id="cf-topic" name="topic"
+ class="w-full rounded-lg border border-gray-300 px-3.5 py-2.5 text-sm bg-white focus:border-[#1c4228] focus:ring-2 focus:ring-[#1c4228]/20 outline-none transition">
+<option value="order">Order query</option>
+<option value="product">Product question</option>
+<option value="wholesale">Wholesale / bulk</option>
+<option value="feedback">Feedback</option>
+</select>
+</div>
+</div>
+<div class="mt-4">
+<label for="cf-message" class="block text-xs font-bold text-gray-900 mb-1.5">Message *</label>
+<textarea id="cf-message" name="message" rows="5" required placeholder="How can we help?"
+ class="w-full rounded-lg border border-gray-300 px-3.5 py-2.5 text-sm focus:border-[#1c4228] focus:ring-2 focus:ring-[#1c4228]/20 outline-none transition resize-y"></textarea>
+</div>
+<p id="cf-error" class="hidden mt-3 text-xs font-semibold text-[#ba1a1a]" role="alert"></p>
+<button type="submit"
+ class="mt-5 inline-flex items-center gap-2 bg-[#1c4228] hover:bg-[#14311d] text-white text-sm font-bold px-6 py-3 rounded-lg shadow-md transition-all transform hover:-translate-y-0.5 active:translate-y-0">
+<span class="tracking-wider uppercase">Send Message</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</form>
+
+<!-- Success state (replaces the form after submit) -->
+<div id="contact-success" data-purpose="contact-success" class="hidden text-center py-8">
+<div class="w-14 h-14 mx-auto mb-4 rounded-full bg-[#f4ebe1] flex items-center justify-center text-[#1c4228] border border-[#e6d7c7]">
+<span class="material-symbols-outlined text-3xl">task_alt</span>
+</div>
+<h3 class="text-lg font-serif text-[#1e231e] mb-1">Thank you for reaching out!</h3>
+<p class="text-sm text-gray-600 max-w-md mx-auto">Your message has been noted &mdash; we will get back to you at your email within <strong>24 hours</strong> (Mon&ndash;Sat).</p>
+<button type="button" id="cf-reset" class="mt-5 text-xs font-bold uppercase tracking-wider text-[#1c4228] hover:underline">Send another message</button>
+</div>
+</div>
+</section>
+
+</div>
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: MainFooter -->
+<footer class="bg-[#1c4228] text-gray-200 text-xs mt-12" data-purpose="site-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-6">
+<!-- Brand Info -->
+<div>
+<h4 class="text-white text-base font-serif font-bold">AromaSpice</h4>
+<p class="text-[11px] text-gray-300 italic mb-3">— by Narus Foods —</p>
+<p class="text-gray-300 leading-relaxed">
+            Bringing authentic Indian flavours directly to your kitchen with love, tradition, and pure freshness.
+          </p>
+</div>
+<!-- Quick Links -->
+<div>
+<h5 class="text-white font-semibold mb-3 uppercase tracking-wider text-[11px]">Quick Links</h5>
+<ul class="space-y-1.5 text-gray-300">
+<li><a class="hover:underline" href="#">Home</a></li>
+<li><a class="hover:underline" href="#">Products &amp; Shop</a></li>
+<li><a class="hover:underline" href="#">Combo Packs</a></li>
+<li><a class="hover:underline text-white font-medium" href="#">About Us</a></li>
+<li><a class="hover:underline" href="#">Track Your Order</a></li>
+</ul>
+</div>
+<!-- Spices Categories -->
+<div>
+<h5 class="text-white font-semibold mb-3 uppercase tracking-wider text-[11px]">Product Categories</h5>
+<ul class="space-y-1.5 text-gray-300">
+<li><a class="hover:underline" href="#">Pure Single Masalas</a></li>
+<li><a class="hover:underline" href="#">Blended Spices</a></li>
+<li><a class="hover:underline" href="#">Aroma Combos</a></li>
+<li><a class="hover:underline" href="#">Special Powders</a></li>
+</ul>
+</div>
+<!-- Customer Care & Contact -->
+<div>
+<h5 class="text-white font-semibold mb-3 uppercase tracking-wider text-[11px]">Contact Narus Foods</h5>
+<p class="text-gray-300 leading-relaxed mb-2">
+            Have questions about our blends? Contact our dedicated support team.
+          </p>
+<p class="text-white font-medium">Aromaspice@gmail.com</p>
+<p class="text-white font-medium">Phone : +91 9042713404</p>
+<p class="text-white font-medium">Address: Narus Foods Pvt Ltd, Spice Kancheepuram, Tamil Nadu, India 631501</p>
+</div>
+</div>
+<!-- Copyright Bottom Bar -->
+<div class="border-t border-[#2e5e3d] pt-4 flex flex-col sm:flex-row items-center justify-between text-gray-400 text-[11px]">
+<p>© 2024 AromaSpice by Narus Foods. All Rights Reserved.</p>
+<div class="flex space-x-4 mt-2 sm:mt-0">
+<a class="hover:underline" href="#">Privacy Policy</a>
+<a class="hover:underline" href="#">Terms of Service</a>
+<a class="hover:underline" href="#">Shipping &amp; Returns</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+
+<script>
+(function () {
+  var form = document.getElementById('contact-form');
+  var ok = document.getElementById('contact-success');
+  var err = document.getElementById('cf-error');
+  if (!form) return;
+  function show(m) { err.textContent = m; err.classList.remove('hidden'); }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = (form.name.value || '').trim();
+    var email = (form.email.value || '').trim();
+    var msg = (form.message.value || '').trim();
+    if (!name || !msg) { show('Please fill in your name and message.'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { show('Please enter a valid email address.'); return; }
+    err.classList.add('hidden');
+    var btn = form.querySelector('button[type="submit"]');
+    if (btn) { btn.disabled = true; btn.style.opacity = '0.6'; }
+    // persist the message (server stores it; admin sees it via the topbar bell)
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, email: email, phone: (form.phone.value || '').trim(), topic: form.topic.value, message: msg })
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; });
+    }).then(function (r) {
+      if (btn) { btn.disabled = false; btn.style.opacity = ''; }
+      if (r.ok) {
+        form.classList.add('hidden');
+        ok.classList.remove('hidden');
+      } else {
+        show((r.j && r.j.error) || 'Could not send your message — please try again.');
+      }
+    }).catch(function () {
+      if (btn) { btn.disabled = false; btn.style.opacity = ''; }
+      show('Network error — please try again.');
+    });
+  });
+  document.getElementById('cf-reset').addEventListener('click', function () {
+    form.reset();
+    ok.classList.add('hidden');
+    form.classList.remove('hidden');
+  });
+})();
+</script>
+</body></html>
